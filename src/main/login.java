@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.User;
+
 /**
  * Servlet implementation class login
  */
@@ -41,14 +43,20 @@ public class login extends HttpServlet {
 			RequestDispatcher view;
 			if (request.getParameter("username").equals("admin")){
 				view = request.getRequestDispatcher("admin.jsp");
+				request.setAttribute("user", request.getParameter("username") );
+				request.setAttribute("roll", "Administrador" );
 			}else {
 				view = request.getRequestDispatcher("user.jsp");
+				request.setAttribute("user", request.getParameter("username") );
+				request.setAttribute("roll", "Usuario" );
 			}
 			
 			view.forward(request, response);
 			
 		}else {
 			RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+			request.setAttribute("errors", "Usuario y contraseña invalido" );
+		
 			view.forward(request, response);
 		}
 		

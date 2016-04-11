@@ -1,35 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/jruteros.css">
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:layout>
+	<jsp:attribute name="header">
+		<header class="main-header">
+			  <!-- Logo -->
+			  <a href="#" class="logo">
+			    <!-- mini logo for sidebar mini 50x50 pixels -->
+			    <span class="logo-mini"><b>J</b>R</span>
+			    <!-- logo for regular state and mobile devices -->
+			    <span class="logo-lg"><b>JRuteros</b></span>
+			  </a>
+			
+			  <!-- Header Navbar: style can be found in header.less -->
+			  <nav class="navbar navbar-static-top" role="navigation">
+			    <!-- Sidebar toggle button-->
+			    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+			      <span class="sr-only">Toggle navigation</span>
+			    </a>
+			    <!-- Navbar Right Menu -->
+			   
+			
+			 </nav>
+			</header>
+	</jsp:attribute>
 
-<title>Insert title here</title>
-</head>
-<body>
-	  <form action="login" method="post">  
-        <fieldset style="width: 300px">  
-            <legend> Login to App </legend>  
-            <table>  
-                <tr>  
-                    <td>User ID</td>  
-                    <td><input type="text" name="username" required="required" /></td>  
-                </tr>  
-                <tr>  
-                    <td>Password</td>  
-                    <td><input type="password" name="userpass" required="required" /></td>  
-                </tr>  
-                <tr>  
-                    <td><input type="submit" value="Login" /></td>  
-                </tr>  
-            </table>  
-        </fieldset>  
-    </form>  
+	<jsp:body>
+		  <div class="container-fluid">
+			<c:if test="${!empty errors}">	
+			  <div class="row">
+			  	<div class="col-md-12">
+			  	 	<div class="panel panel-danger" >
+			  	 		<div class="panel-heading">
+			  	 			<h4 class="panel-title">Se encontraron los siguientes errores:</h4>
+			  	 		</div>
+			  	 		<div class="panel-body">${errors}</div> 
+			  	 	</div>
+			  	 	
+			  	 </div>
+			  </div>
+		  </c:if>
+		 
+		  	<div class="row">
+		  		<div class='col-md-12'>
+				   <form action="login" method="post" class="form-horizontal">
+					<fieldset>
 
-</body>
-
-<script src="js/jruteros.js"></script>
-<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-</html>
+					<!-- Form Name -->
+					<legend class="login-text">Login</legend>
+					<!-- Text input-->
+					<div class="form-group">
+					
+					  <label class="col-md-4 control-label" for="textinput">Usuario</label>  
+					  <div class="col-md-4">
+					  <input id="textinput" name="username" type="text" placeholder="Ingrese su usuario" class="form-control">
+					  </div>
+					</div>
+					
+					<!-- Password input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="passwordinput">Contraseña</label>
+					  <div class="col-md-4">
+					    <input id="passwordinput" name="userpass" type="password" placeholder="Ingrese su contraseña" class="form-control input-md">
+					  </div>
+					</div>
+					
+					<!-- Button -->
+					<div class="form-group">
+					<div class="col-md-4"></div>
+					  <div class="col-md-4">
+					    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Iniciar sesión</button>
+					  </div>
+					</div>
+					
+					</fieldset>
+					</form>
+			</div>					   
+		  </div>
+		
+	</jsp:body>
+</t:layout>

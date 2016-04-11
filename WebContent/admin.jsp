@@ -26,13 +26,13 @@
 			        <!-- User Account: style can be found in dropdown.less -->
 			        <li class="dropdown user user-menu">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			            <span class="hidden-xs">Esteban Sanchez</span>
+			            <span class="hidden-xs"> ${user} </span>
 			          </a>
 			          <ul class="dropdown-menu">
 			            <!-- User image -->
 			            <li class="user-header">
 			              <p>
-			               Esteban Sanchez
+			             	${user}
 			               <small>Admin</small>
 			             </p>
 			           </li>
