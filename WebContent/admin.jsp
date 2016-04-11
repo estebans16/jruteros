@@ -1,19 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/jruteros.css">
-<link rel="stylesheet" href="css/AdminLTE.css">
-
-<title>Insert title here</title>
-</head>
-<body>
-	<t:layout>
-		<jsp:attribute name="header">
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:layout>
+    <jsp:attribute name="header">
+      
 			<header class="main-header">
-			
 			  <!-- Logo -->
 			  <a href="#" class="logo">
 			    <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -51,7 +42,7 @@
 			              <a href="#" class="btn btn-default btn-flat">Perfil</a>
 			            </div>
 			            <div class="pull-right">
-			               <a  value="Cerrar Sesión" class: "btn btn-default btn-flat" />
+			               <a  href="#" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
 			            </div>
 			          </li>
 			        </ul>
@@ -62,16 +53,27 @@
 			
 			 </nav>
 			</header>
-		</jsp:attribute>
-		<jsp:attribute name="footer">
-	      <p id="copyright">Copyright 1927, Future Bits When There Be Bits Inc.</p>
-	    </jsp:attribute>
-	    <jsp:body>
-	        <p>Hi I'm the heart of the message</p>
-	    </jsp:body>
-	</t:layout>
-</body>
-
-<script src="js/jruteros.js"></script>
-<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-</html>
+    </jsp:attribute>
+     
+     <jsp:attribute name="lateral">
+     	<aside class="main-sidebar">
+    	<!-- sidebar: style can be found in sidebar.less -->
+   			 <section class="sidebar">
+		    	 <ul class="sidebar-menu">
+		  			<li class="header">OPCIONES</li>
+		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Usuarios</span></a></li>
+		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Recorridos</span></a></li>
+				</ul>
+			</section>
+    	<!-- /.sidebar -->
+  		</aside>
+	</jsp:attribute>
+    
+    <jsp:attribute name="footer">
+      <p id="copyright">Copyright 1927, Future Bits When There Be Bits Inc.</p>
+    </jsp:attribute>
+    
+    <jsp:body>
+        <p>Hi I'm the heart of the message</p>
+    </jsp:body>
+</t:layout>
