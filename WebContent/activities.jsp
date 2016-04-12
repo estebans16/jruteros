@@ -42,7 +42,7 @@
 			              <a href="#" class="btn btn-default btn-flat">Perfil</a>
 			            </div>
 			            <div class="pull-right">
-			               <a  href="#" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
+			            	<a  href="${pageContext.request.contextPath}" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
 			            </div>
 			          </li>
 			        </ul>
@@ -71,6 +71,60 @@
 	</jsp:attribute>
 	
     <jsp:body>
-        <p>ACTIVIDADES</p>
+    	<div class="container-fluid">
+        	<div class="row">
+        		<div class="col-md-12">
+        			<div class="panel panel-default">
+  						<div class="panel-heading ">
+  								<a class="btn btn-info btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-pencil" title="Nueva" aria-hidden="true"> Nueva actividad </i></a>								      
+  						</div>
+							<table class="table table-condensed table-bordered table-hover datatable">
+								<thead>
+								    <tr>
+								      <th>Nombre</th>
+								      <th>Desde</th>
+								      <th>Estado</th>
+								      <th>Cantidad de rutas</th>
+								      <th></th>
+								    </tr>
+  								</thead>
+  								<tbody>
+  									<tr>
+								      <td>Running</td>
+								      <td>01/01/2016</td>
+								      <td>Activo</td>
+								      <td>5</td>
+								      <td>
+								      	<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/editactivity"><i class="fa fa-pencil-square-o" title="Editar" aria-hidden="true"></i></a>
+										<a class="btn btn-danger btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-times" title="Deshabilitar" aria-hidden="true"></i></a>								      
+								      </td>
+								    </tr>
+								    <tr>
+								      <td>Montaña</td>
+								      <td>01/04/2016</td>
+								      <td>Inactivo</td>
+								      <td>5</td>
+								      <td>
+								      	<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/editactivity"><i class="fa fa-pencil-square-o" title="Editar" aria-hidden="true"></i></a>
+										<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/enableuser"><i class="fa fa-check" title="Habilitar" aria-hidden="true"></i></a>								      
+								      </td>
+								    </tr>
+								     <tr>
+								      <td>Maraton</td>
+								      <td>01/06/2016</td>
+								      <td>Activo</td>
+								      <td>1</td>
+								      <td>
+								      	<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/editactivity"><i class="fa fa-pencil-square-o" title="Editar" aria-hidden="true"></i></a>
+										<a class="btn btn-danger btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-times" title="Deshabilitar" aria-hidden="true"></i></a>										      
+								      </td>
+								    </tr>
+  								</tbody>
+  							</table>
+					</div>
+        		</div>
+        	</div>
+        	
+        </div>
     </jsp:body>
 </t:layout>

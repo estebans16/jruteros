@@ -29,8 +29,11 @@ public class activities extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setAttribute("user", "Admin" );
+		request.setAttribute("roll", "Administrador" );
 		RequestDispatcher view = request.getRequestDispatcher("activities.jsp");
 		view.forward(request, response);
+		
 	}
 
 	/**

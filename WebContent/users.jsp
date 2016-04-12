@@ -103,7 +103,7 @@
 								      <td>Inactivo</td>
 								      <td>
 								      	<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/userstatistics"><i class="fa fa-bar-chart" title="Estadística" aria-hidden="true"></i></a>
-										<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/disableuser"><i class="fa fa-check" title="Deshabilitar" aria-hidden="true"></i></a>								      
+										<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/disableuser"><i class="fa fa-check" title="Habilitar" aria-hidden="true"></i></a>								      
 								      </td>
 								    </tr>
   								</tbody>
@@ -113,10 +113,17 @@
         	</div>
         	
         </div>
+
+
  
     </jsp:body>
+
    
 </t:layout>
+                    <c:set var="salary" scope="session" value="${2000*2}"/>
+<c:if test="${salary > 2000}">
+   <p>My salary is: <c:out value="${salary}"/><p>
+</c:if>
 
 <% ArrayList<User> users = (ArrayList<User>) request.getAttribute("users");
 for(int i = 0 ; i < users.size() ; i++) {
