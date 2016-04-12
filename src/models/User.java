@@ -13,14 +13,30 @@ public class User {
 	private String sex;
 	private String email;
 	private String roll;
+	private boolean active;
 	
-	public User(String name, String lastName, String roll) {
+	
+	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public User(String userName, int dni, String name, String lastName, String address, Date birthdate, String sex,
+			String email, String roll, boolean active) {
 		super();
+		this.userName = userName;
+		this.dni = dni;
 		this.name = name;
 		this.lastName = lastName;
+		this.address = address;
+		this.birthdate = birthdate;
+		this.sex = sex;
+		this.email = email;
 		this.roll = roll;
+		this.active = active;
 	}
-	
 	public String getName() {
 		return name;
 	}

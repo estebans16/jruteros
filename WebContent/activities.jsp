@@ -71,6 +71,6 @@
 	</jsp:attribute>
 	
     <jsp:body>
-        <p>Hi I'm the heart of the message</p>
+        <p>ACTIVIDADES</p>
     </jsp:body>
 </t:layout>
