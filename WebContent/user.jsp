@@ -42,7 +42,7 @@
 			              <a href="#" class="btn btn-default btn-flat">Perfil</a>
 			            </div>
 			            <div class="pull-right">
-			               <a  href="#" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
+			               <a  href="http://localhost:8080/JRuteros" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
 			            </div>
 			          </li>
 			        </ul>
@@ -61,14 +61,9 @@
    			 <section class="sidebar">
 		    	 <ul class="sidebar-menu">
 		  			<li class="header">OPCIONES</li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Editar ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Eliminar ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Detalle de ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Marcar ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Valorar ruta</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Mis rutas</span></a></li>
-		  			<li> <a href="#"> <i class="fa fa-square"></i> <span class='menu-options'>Buscar ruta</span></a></li>
+		  			<li> <a href="http://localhost:8080/JRuteros/newroute"> <i class="fa fa-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
+		  			<li> <a href="http://localhost:8080/JRuteros/myroutes"> <i class="fa fa-square"></i> <span class='menu-options'>Mis rutas</span></a></li>
+		  			<li> <a href="http://localhost:8080/JRuteros/searchroute"> <i class="fa fa-square"></i> <span class='menu-options'>Buscar ruta</span></a></li>
 				</ul>
 			</section>
     	<!-- /.sidebar -->

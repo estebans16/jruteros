@@ -28,7 +28,7 @@
 
 	<jsp:body>
 		  <div class="container-fluid">
-			<c:if test="${!empty errors}">	
+			<c:if test="${not empty errors}">	
 			  <div class="row">
 			  	<div class="col-md-12">
 			  	 	<div class="panel panel-danger">

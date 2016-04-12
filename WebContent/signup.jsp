@@ -51,7 +51,7 @@
 					<legend class="login-text">Registrarse</legend>
 					
 					<div class="row text-center">
-						Completa todos los campos y luego presiona Registrar para crear tu cuenta
+						Completa todos los campos y luego presiona Registrar para crear tu cuenta<br>
 					</div>
 					<div class="form-group">
 					
