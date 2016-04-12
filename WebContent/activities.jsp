@@ -63,7 +63,7 @@
 		  			<li class="header">OPCIONES</li>
 		  			
 		  			<li> <a href="${pageContext.request.contextPath}/users"> <i class="fa fa-users"></i> <span class='menu-options'>Usuarios</span></a></li>
-		  			<li> <a href="${pageContext.request.contextPath}/activities"> <i class="fa fa-th-list"></i> <span class='menu-options'>Actividades</span></a></li>
+		  			<li class="active"> <a href="${pageContext.request.contextPath}/activities"> <i class="fa fa-th-list"></i> <span class='menu-options'>Actividades</span></a></li>
 				</ul>
 			</section>
     	<!-- /.sidebar -->
