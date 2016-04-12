@@ -55,6 +55,21 @@
 			</header>
 	</jsp:attribute>
 
+	<jsp:attribute name="lateral">
+     	<aside class="main-sidebar">
+    	<!-- sidebar: style can be found in sidebar.less -->
+   			 <section class="sidebar">
+		    	 <ul class="sidebar-menu">
+		  			<li class="header">OPCIONES</li>
+		  			<li> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/searchroute"> <i class="fa fa-search"></i> <span class='menu-options'>Buscar ruta</span></a></li>
+				</ul>
+			</section>
+    	<!-- /.sidebar -->
+  		</aside>
+	</jsp:attribute>
+
 	<jsp:body>
 		  <div class="container-fluid">
 			<!-- 
