@@ -42,7 +42,7 @@
 			              <a href="#" class="btn btn-default btn-flat">Perfil</a>
 			            </div>
 			            <div class="pull-right">
-			               <a  href="http://localhost:8080/JRuteros" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
+			               <a  href="${pageContext.request.contextPath}" class= "btn btn-default btn-flat" >Cerrar Sesión</a>
 			            </div>
 			          </li>
 			        </ul>
@@ -61,9 +61,9 @@
    			 <section class="sidebar">
 		    	 <ul class="sidebar-menu">
 		  			<li class="header">OPCIONES</li>
-		  			<li> <a href="http://localhost:8080/JRuteros/newroute"> <i class="fa fa-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
-		  			<li> <a href="http://localhost:8080/JRuteros/myroutes"> <i class="fa fa-square"></i> <span class='menu-options'>Mis rutas</span></a></li>
-		  			<li> <a href="http://localhost:8080/JRuteros/searchroute"> <i class="fa fa-square"></i> <span class='menu-options'>Buscar ruta</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/searchroute"> <i class="fa fa-search"></i> <span class='menu-options'>Buscar ruta</span></a></li>
 				</ul>
 			</section>
     	<!-- /.sidebar -->
