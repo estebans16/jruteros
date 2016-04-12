@@ -62,7 +62,7 @@
 		    	 <ul class="sidebar-menu">
 		  			<li class="header">OPCIONES</li>
 		  			<li> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
-		  			<li> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
+		  			<li class="active"> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
 		  			<li> <a href="${pageContext.request.contextPath}/searchroute"> <i class="fa fa-search"></i> <span class='menu-options'>Buscar ruta</span></a></li>
 				</ul>
 			</section>
@@ -104,10 +104,10 @@
   								</thead>
   								<tbody>
   									<tr>
-								      <td>Ruta1</td>
+								      <td>13 días en bicicleta por el centro de Inglaterra</td>
 								      <td>
 								      	<form action="detailsroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta1">
+									      	<input type="hidden" name="name" value="13 dias en bicicleta por el centro de Inglaterra">
 									      	<button class="btn btn-success btn-sm"><i class="fa fa-info" title="Details" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
@@ -125,10 +125,10 @@
 								      </td>
 								    </tr>
 									<tr>
-								      <td>Ruta2</td>
+								      <td>El gran viaje</td>
 								      <td>
 								      	<form action="detailsroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta2">
+									      	<input type="hidden" name="name" value="El gran viaje">
 									      	<button class="btn btn-success btn-sm"><i class="fa fa-info" title="Details" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
@@ -146,10 +146,10 @@
 								      </td>
 								    </tr>
 								    <tr>
-								      <td>Ruta3</td>
+								      <td>Escocia. Con mi música a otra parte</td>
 								      <td>
 								      	<form action="detailsroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta3">
+									      	<input type="hidden" name="name" value="Escocia. Con mi musica a otra parte">
 									      	<button class="btn btn-success btn-sm"><i class="fa fa-info" title="Details" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
