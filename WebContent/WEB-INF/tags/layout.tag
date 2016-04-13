@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="plugins/select2/select2.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<link rel="stylesheet" href="css/font-awesome-animation.css">
+	<!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  	<title>JRuteros</title>
  </head>
@@ -57,6 +59,10 @@
   	<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   	<script src="plugins/select2/select2.full.js"></script>
   	<script src="js/app.js"></script>
+  	
+	<script src="plugins/datatables/jquery.dataTables.js"></script>
   	<script src="js/jruteros.js"></script>
+  	
+
   </body>
 </html>

@@ -66,20 +66,26 @@ initialize_grafico = function(object) {
 		    ]
 		};
 
-	var ctx = document.getElementById("myChart").getContext("2d");
-	/*var ctx = $("#myChart").getContext("2d");
-	var myLineChart = new Chart(ctx).Line(data, {
-		responsive : true
-	});*/
-	window.myBar = new Chart(ctx).Bar(data, {
-		responsive : true
-	});
+	var ctx = document.getElementById("myChart")
+	if (ctx != null){
+		ctx.getContext("2d");
+		window.myBar = new Chart(ctx).Bar(data, {
+			responsive : true
+		});
+	}
 	
-}
+};
+
+initialize_dataTables = function(object){    
+        $('#tableroutes').DataTable();
+        $('#tableusers').DataTable();
+        $('#tablesearch').DataTable();
+};
 
 $( document ).ready(function() {
 	  initialize_datepicker();
 	  initialize_select2_multiple();
+	  initialize_dataTables();
 	  initialize_grafico();
-	 
+	  
 });

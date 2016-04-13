@@ -93,7 +93,7 @@
         		<div class="col-md-12">
         			<div class="panel panel-default">
   						<div class="panel-heading ">Mis rutas</div>
-							<table class="table table-condensed table-bordered table-hover dataTable">
+							<table class="table table-bordered table-hover" id="tableroutes">
 								<thead>
 								    <tr>
 								      <th>Nombre</th>
@@ -173,6 +173,7 @@
         	</div>
         	
         </div>
-		  	
+		
+			  	
 	</jsp:body>
 </t:layout>
