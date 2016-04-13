@@ -93,7 +93,7 @@
         		<div class="col-md-12">
         			<div class="panel panel-default">
   						<div class="panel-heading ">Mis rutas</div>
-							<table class="table table-condensed table-bordered table-hover datatable">
+							<table class="table table-condensed table-bordered table-hover dataTable">
 								<thead>
 								    <tr>
 								      <th>Nombre</th>

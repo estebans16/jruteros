@@ -113,6 +113,22 @@
 						  </div>
 						</div>
 						
+						<!-- Number of users input -->
+						<div class="form-group">
+						  <label class="col-md-3 control-label" for="usersinput">Número de usuarios:</label>
+						  <div class="col-md-8">
+						    <div class="well well-sm">99999</div>
+						  </div>
+						</div>
+						
+						<!-- Score input -->
+						<div class="form-group">
+						  <label class="col-md-3 control-label" for="scoreinput">Puntaje:</label>
+						  <div class="col-md-8">
+						    <div class="well well-sm">5.0</div>
+						  </div>
+						</div>
+						
 						<!-- Privacy radio -->
 						<div class="form-group">
 						  <label class="col-md-3 control-label" for="privacyradio">Privacidad:</label>
@@ -188,7 +204,17 @@
 						<form action="deleteroute" method="post">
 					      	<input type="hidden" name="name" value="${name}">
 					      	<button class="btn btn-danger btn-sm"><i class="fa fa-times" title="Delete" aria-hidden="true"></i> Eliminar ruta</button>
-				      	</form>	
+				      	</form>
+				      	<form action="didroute" method="post">
+					      	<input type="hidden" name="name" value="${name}">
+					      	<button class="btn btn-success btn-sm"><i class="fa fa-check" title="Did" aria-hidden="true"></i> Hice esta ruta</button>
+				      	</form>
+				      	<form action="scoreroute" method="post">
+					      	<input type="hidden" name="name" value="${name}">
+					      	<input type="number" name="score" min="0.0" max="5.0" step="0.5" value="${name}" placeholder="5.0" required><br>
+					      	<button class="btn btn-warning btn-sm"><i class="fa fa-star" title="Did" aria-hidden="true"></i> Puntuar</button>
+				      	</form>
+				      	
 					</div>
 			</div>					   
 		  </div>
