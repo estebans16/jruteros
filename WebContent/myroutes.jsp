@@ -113,13 +113,13 @@
 								      </td>
 								      <td>
 								      	<form action="editroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta1">
+									      	<input type="hidden" name="name" value="13 dias en bicicleta por el centro de Inglaterra">
 									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
 								      <td>
 										<form action="deleteroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta1">
+									      	<input type="hidden" name="name" value="13 dias en bicicleta por el centro de Inglaterra">
 									      	<button class="btn btn-danger btn-sm"><i class="fa fa-times" title="Delete" aria-hidden="true"></i></button>
 								      	</form>							      
 								      </td>
@@ -134,13 +134,13 @@
 								      </td>
 								      <td>
 								      	<form action="editroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta2">
+									      	<input type="hidden" name="name" value="El gran viaje">
 									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
 								      <td>
 										<form action="deleteroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta2">
+									      	<input type="hidden" name="name" value="El gran viaje">
 									      	<button class="btn btn-danger btn-sm"><i class="fa fa-times" title="Delete" aria-hidden="true"></i></button>
 								      	</form>							      
 								      </td>
@@ -155,13 +155,13 @@
 								      </td>
 								      <td>
 								      	<form action="editroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta3">
+									      	<input type="hidden" name="name" value="Escocia. Con mi musica a otra parte">
 									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 								      	</form>
 								      </td>
 								      <td>
 										<form action="deleteroute" method="post">
-									      	<input type="hidden" name="name" value="Ruta3">
+									      	<input type="hidden" name="name" value="Escocia. Con mi musica a otra parte">
 									      	<button class="btn btn-danger btn-sm"><i class="fa fa-times" title="Delete" aria-hidden="true"></i></button>
 								      	</form>							      
 								      </td>

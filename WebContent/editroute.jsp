@@ -61,8 +61,8 @@
    			 <section class="sidebar">
 		    	 <ul class="sidebar-menu">
 		  			<li class="header">OPCIONES</li>
-		  			<li class="active"> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
-		  			<li> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
+		  			<li> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
+		  			<li class="active"> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
 		  			<li> <a href="${pageContext.request.contextPath}/searchroute"> <i class="fa fa-search"></i> <span class='menu-options'>Buscar ruta</span></a></li>
 				</ul>
 			</section>
@@ -90,9 +90,9 @@
 		 
 		  	<div class="row">
 		  		<div class='col-md-12'>
-				   <legend class="login-text text-center">Nueva ruta</legend>
+				   <legend class="login-text text-center">Editar ruta</legend>
 				   <div class="row text-center">
-						Completa todos los campos con * y luego presiona Aceptar para crear tu ruta<br><br>
+						Completa todos los campos con * y luego presiona Aceptar para editar tu ruta<br><br>
 					</div>
 				   <div class="col-md-2"></div>
 				   <div class="col-md-8">
@@ -105,7 +105,7 @@
 						  <div class="col-md-8">
 						  <input id="textinput" name="routename" type="text"
 											placeholder="Ingrese el nombre de la ruta"
-											class="form-control" required>
+											class="form-control" value="${name}" required>
 						  </div>
 						</div>
 						
@@ -115,7 +115,7 @@
 						  <div class="col-md-8">
 						    <textarea rows="4" cols="50" id="descriptiontextarea"
 											name="routedescription" placeholder="Ingrese una descripción"
-											class="form-control textarea-md"></textarea>
+											class="form-control textarea-md">${description}</textarea>
 						  </div>
 						</div>
 						
@@ -138,7 +138,7 @@
 						    <input id="travelfile" name="routetravel" type="file"
 											placeholder="Agregar mapa" class="form-control file-md"
 											required>
-							<img src="${pageContext.request.contextPath}/img/googlemaps.png" alt="Google Maps" height="100" width="100">
+							<img src="${pageContext.request.contextPath}${travel}" class="img-thumbnail" alt="${name}">
 						  </div>
 						</div>
 						
@@ -160,7 +160,7 @@
 						  <div class="col-md-8">
 						    <input id="distanceinput" name="routedistance" type="number"
 											placeholder="Ingrese la distancia en km"
-											class="form-control input-md" required>
+											class="form-control input-md" value="${distance}" required>
 						  </div>
 						</div>
 						
@@ -220,7 +220,7 @@
 						  <div class="col-md-8">
 						    <input id="timeinput" name="routetime" type="text"
 											placeholder="Ingrese el tiempo estimado"
-											class="form-control input-md" required>
+											class="form-control input-md" value="${time}" required>
 						  </div>
 						</div>
 						
@@ -231,6 +231,7 @@
 						    <input id="photosfile" name="routephotos" type="file"
 											placeholder="Agregar fotos" class="form-control file-md"
 											required>
+							<img src="${pageContext.request.contextPath}${photos}" class="img-thumbnail" alt="${name}">
 						  </div>
 						</div>
 						
@@ -240,7 +241,6 @@
 						  <div class="col-md-8">
 						    <button id="singlebutton" name="singlebutton"
 											class="btn btn-primary">Aceptar</button>
-						
 						  </div>
 						</div>
 						
