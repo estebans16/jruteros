@@ -76,7 +76,7 @@
         		<div class="col-md-12">
         			<div class="panel panel-default">
   						<div class="panel-heading ">
-  								<a class="btn btn-info btn-sm " href="${pageContext.request.contextPath}/newactivity"><i class="fa fa-pencil" title="Nueva" aria-hidden="true"> Nueva actividad </i></a>								      
+  								<a class="btn btn-info btn-sm " href="${pageContext.request.contextPath}/newactivity"><i class="fa fa-plus title="Nueva" aria-hidden="true"> Nueva actividad </i></a>								      
   						</div>
 							<table class="table table-condensed table-bordered table-hover datatable">
 								<thead>
@@ -97,7 +97,7 @@
 								      <td>
 									      <form action="editactivity" method="post">
 										      	<input type="hidden" name="name" value="Running">
-										      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i></button>
+										      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 									      		<a class="btn btn-danger btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-times" title="Deshabilitar" aria-hidden="true"></i></a>
 									      </form>	      
 								      </td>
@@ -110,7 +110,7 @@
 								      <td>
 									      <form action="editactivity" method="post">
 									      <input type="hidden" name="name" value="Mountain">
-									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i></button>
+									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 											<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/enableactivity"><i class="fa fa-check" title="Habilitar" aria-hidden="true"></i></a>								      
 									       </form>
 								      </td>
@@ -123,7 +123,7 @@
 								      <td>
 								      <form action="editactivity" method="post">
 									      	<input type="hidden" name="name" value="Maraton">
-									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i></button>
+									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 								      		<a class="btn btn-danger btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-times" title="Deshabilitar" aria-hidden="true"></i></a>
 								      </form>							      
 								      </td>
@@ -137,7 +137,7 @@
 								      <td>
 								      	<form action="editactivity" method="post">
 									      	<input type="hidden" name="name" value="Ciclismo">
-									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i></button>
+									      	<button class="btn btn-info btn-sm"><i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
 								      		<a class="btn btn-danger btn-sm " href="${pageContext.request.contextPath}/disableactivity"><i class="fa fa-times" title="Deshabilitar" aria-hidden="true"></i></a>
 								      	</form>      
 								      </td>

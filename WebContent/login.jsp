@@ -28,7 +28,7 @@
 
 	<jsp:body>
 		  <div class="container-fluid">
-			
+			<!--
 			<c:if test="${not empty errors}">	
 			  <div class="row">
 			  	<div class="col-md-12">
@@ -42,7 +42,7 @@
 			  	 </div>
 			  </div>
 		  </c:if>
-		  
+		  -->
 		  	<div class="row text-center">
 		  		<div class='col-md-12'>
 					<legend class="login-text">Iniciar sesión</legend>

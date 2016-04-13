@@ -66,9 +66,9 @@ initialize_grafico = function(object) {
 		    ]
 		};
 
-	var ctx = document.getElementById("myChart")
+	var ctx = document.getElementById("myChart");
 	if (ctx != null){
-		ctx.getContext("2d");
+		ctx = document.getElementById("myChart").getContext("2d");
 		window.myBar = new Chart(ctx).Bar(data, {
 			responsive : true
 		});
