@@ -78,7 +78,7 @@
         		<div class="col-md-12">
         			<div class="panel panel-default">
   						<div class="panel-heading ">Usuarios</div>
-							<table class="table table-condensed table-bordered table-hover datatable">
+							<table class="table table-condensed table-bordered table-hover " id="tableusers">
 								<thead>
 								    <tr>
 								      <th>Nombre</th>
@@ -113,7 +113,7 @@
         	</div>
         	
         </div>
-
+	
 
  
     </jsp:body>

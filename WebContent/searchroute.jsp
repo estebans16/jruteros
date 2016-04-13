@@ -129,7 +129,7 @@
         		<div class="col-md-12">
         			<div class="panel panel-default">
   						<div class="panel-heading ">Resultado de la búsqueda</div>
-							<table class="table table-condensed table-bordered table-hover dataTable">
+							<table class="table table-condensed table-bordered table-hover dataTable" id="tablesearch">
 								<thead>
 								    <tr>
 								      <th>Nombre</th>
