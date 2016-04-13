@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/skins/_all-skins.min.css">
 	<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
 	<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	<link rel="stylesheet" href="plugins/select2/select2.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<link rel="stylesheet" href="css/font-awesome-animation.css">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -47,12 +48,15 @@
 	    </footer>
   	</div><!-- ./wrapper -->
   	<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-  
+  	
   	<script src="js/bootstrap.js"></script>
-  	<script src="js/jruteros.js"></script>
+  	
   	<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
   	<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="plugins/chartjs/Chart.js"></script>
   	<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+  	<script src="plugins/select2/select2.full.js"></script>
   	<script src="js/app.js"></script>
+  	<script src="js/jruteros.js"></script>
   </body>
 </html>
