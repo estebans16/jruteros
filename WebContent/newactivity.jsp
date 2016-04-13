@@ -117,18 +117,7 @@
 							  placeholder="" required>
 							  </div>
 							</div>
-							<div class="form-group">
 							
-							  <label class="col-md-4 control-label" for="textinput">Rutas*</label>  
-							  <div class="col-md-4">
-								  <select name="selectroutes" id="select2-routes" class="form-control ">
-									<option value="1">13 días en bicicleta por el centro de Inglaterra</option>
-									<option value="2">El gran viaje</option>
-									<option value="3">Escocia. Con mi música a otra parte</option>
-								  </select>
-							
-							  </div>
-							</div>
 							<div class="form-group">
 								<div class="col-md-4"></div>
 								<div class="col-md-8">
