@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
@@ -14,17 +15,25 @@ public class User {
 	private String email;
 	private String roll;
 	private boolean active;
+	private ArrayList<Route> routesList;
 	
 	
 	
+	public ArrayList<Route> getRoutesList() {
+		return routesList;
+	}
+	public void setRoutesList(ArrayList<Route> routesList) {
+		this.routesList = routesList;
+	}
 	public boolean isActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
 	public User(String userName, int dni, String name, String lastName, String address, Date birthdate, String sex,
-			String email, String roll, boolean active) {
+			String email, String roll, boolean active, ArrayList<Route> routesList) {
 		super();
 		this.userName = userName;
 		this.dni = dni;
@@ -36,6 +45,7 @@ public class User {
 		this.email = email;
 		this.roll = roll;
 		this.active = active;
+		this.routesList = routesList;
 	}
 	public String getName() {
 		return name;

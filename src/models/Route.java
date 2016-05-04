@@ -8,21 +8,21 @@ public class Route {
 	private String name;
 	private String description;
 	private String privacy;
-	private String travel; //Después va a ser otra cosa
+	private Travel travel; //Despuï¿½s va a ser otra cosa
 	private String format;
 	private float distance;
 	private String difficulty;
 	private String activity;
 	private Time time;
 	private Date date;
-	private String photos; //Después va a ser otra cosa
+	private String photos; //Despuï¿½s va a ser otra cosa
 
 	public Route() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Route(String name, String description, String privacy,
-			String travel, String format, float distance, String difficulty,
+			Travel travel, String format, float distance, String difficulty,
 			String activity, Time time, Date date, String photos) {
 		super();
 		this.name = name;
@@ -62,11 +62,11 @@ public class Route {
 		this.privacy = privacy;
 	}
 
-	public String getTravel() {
+	public Travel getTravel() {
 		return travel;
 	}
 
-	public void setTravel(String travel) {
+	public void setTravel(Travel travel) {
 		this.travel = travel;
 	}
 
