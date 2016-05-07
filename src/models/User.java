@@ -47,6 +47,22 @@ public class User {
 		this.active = active;
 		this.routesList = routesList;
 	}
+	
+	public User(String userName, int dni, String name, String lastName, String address, Date birthdate, String sex,
+			String email, String roll, boolean active) {
+		super();
+		this.userName = userName;
+		this.dni = dni;
+		this.name = name;
+		this.lastName = lastName;
+		this.address = address;
+		this.birthdate = birthdate;
+		this.sex = sex;
+		this.email = email;
+		this.roll = roll;
+		this.active = active;
+		this.routesList = new ArrayList<Route>();
+	}
 	public String getName() {
 		return name;
 	}

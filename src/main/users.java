@@ -36,7 +36,7 @@ public class users extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<User> users = new ArrayList<User>();
-		
+
 		users.add(new User("admin", 0,"","","",new Date("25/01/1991"), "","","admin", true ));
 		users.add(new User("user", 0,"","","",new Date("25/01/1991"), "","","admin", false ));
 		users.add(new User("user2", 0,"","","",new Date("25/01/1991"), "","","admin", false ));

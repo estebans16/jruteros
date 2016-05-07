@@ -1,6 +1,7 @@
 package models;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Route {
@@ -15,7 +16,7 @@ public class Route {
 	private String activity;
 	private Time time;
 	private Date date;
-	private String photos; //Despu�s va a ser otra cosa
+	private ArrayList<Photo> photoList; //Despu�s va a ser otra cosa
 
 	public Route() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +24,7 @@ public class Route {
 
 	public Route(String name, String description, String privacy,
 			Travel travel, String format, float distance, String difficulty,
-			String activity, Time time, Date date, String photos) {
+			String activity, Time time, Date date, ArrayList<Photo> photos) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -35,7 +36,7 @@ public class Route {
 		this.activity = activity;
 		this.time = time;
 		this.date = date;
-		this.photos = photos;
+		this.photoList = photos;
 	}
 
 	public String getName() {
@@ -118,12 +119,12 @@ public class Route {
 		this.date = date;
 	}
 
-	public String getPhotos() {
-		return photos;
+	public ArrayList<Photo> getPhotos() {
+		return photoList;
 	}
 
-	public void setPhotos(String photos) {
-		this.photos = photos;
+	public void setPhotos(ArrayList<Photo> photos) {
+		this.photoList = photos;
 	}
 	
 	
