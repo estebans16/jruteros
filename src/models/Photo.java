@@ -3,6 +3,7 @@ package models;
 public class Photo {
 	private String name;
 	private String path;
+	
 	public String getName() {
 		return name;
 	}
@@ -20,6 +21,4 @@ public class Photo {
 		this.name = name;
 		this.path = path;
 	}
-	
-
 }

@@ -9,18 +9,14 @@ public class Route {
 	private String name;
 	private String description;
 	private String privacy;
-	private Travel travel; //Despu�s va a ser otra cosa
+	private Travel travel;
 	private String format;
 	private float distance;
 	private String difficulty;
 	private String activity;
 	private Time time;
 	private Date date;
-	private ArrayList<Photo> photoList; //Despu�s va a ser otra cosa
-
-	public Route() {
-		// TODO Auto-generated constructor stub
-	}
+	private ArrayList<Photo> photoList;
 
 	public Route(String name, String description, String privacy,
 			Travel travel, String format, float distance, String difficulty,

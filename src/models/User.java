@@ -17,8 +17,6 @@ public class User {
 	private boolean active;
 	private ArrayList<Route> routesList;
 	
-	
-	
 	public ArrayList<Route> getRoutesList() {
 		return routesList;
 	}

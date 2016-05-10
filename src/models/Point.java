@@ -3,6 +3,7 @@ package models;
 public class Point {
 	private String longuitude;
 	private	String latitude;
+	
 	public String getLonguitude() {
 		return longuitude;
 	}
@@ -20,5 +21,4 @@ public class Point {
 		this.longuitude = longuitude;
 		this.latitude = latitude;
 	}
-
 }
