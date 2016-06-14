@@ -1,10 +1,18 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class User {
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class User implements Serializable {
+	@Id @GeneratedValue
+	private Long id;
 	private String userName;
 	private int dni;
 	private String name;
@@ -16,7 +24,51 @@ public class User {
 	private String roll;
 	private boolean active;
 	private ArrayList<Route> routesList;
+	private ArrayList<RouteScore> routeScoreList;
+	private ArrayList<TraveledRoute> traveledRouteList;
 	
+	public User(String userName, int dni, String name, String lastName,
+			String address, Date birthdate, String sex, String email,
+			String roll, boolean active, ArrayList<Route> routesList,
+			ArrayList<RouteScore> routeScoreList,
+			ArrayList<TraveledRoute> traveledRouteList) {
+		super();
+		this.userName = userName;
+		this.dni = dni;
+		this.name = name;
+		this.lastName = lastName;
+		this.address = address;
+		this.birthdate = birthdate;
+		this.sex = sex;
+		this.email = email;
+		this.roll = roll;
+		this.active = active;
+		this.routesList = routesList;
+		this.routeScoreList = routeScoreList;
+		this.traveledRouteList = traveledRouteList;
+	}
+	public User(){
+		super();
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	
+
+	public ArrayList<RouteScore> getRouteScoreList() {
+		return routeScoreList;
+	}
+	public void setRouteScoreList(ArrayList<RouteScore> routeScoreList) {
+		this.routeScoreList = routeScoreList;
+	}
+	public ArrayList<TraveledRoute> getTraveledRouteList() {
+		return traveledRouteList;
+	}
+	public void setTraveledRouteList(ArrayList<TraveledRoute> traveledRouteList) {
+		this.traveledRouteList = traveledRouteList;
+	}
 	public ArrayList<Route> getRoutesList() {
 		return routesList;
 	}
@@ -30,37 +82,6 @@ public class User {
 		this.active = active;
 	}
 
-	public User(String userName, int dni, String name, String lastName, String address, Date birthdate, String sex,
-			String email, String roll, boolean active, ArrayList<Route> routesList) {
-		super();
-		this.userName = userName;
-		this.dni = dni;
-		this.name = name;
-		this.lastName = lastName;
-		this.address = address;
-		this.birthdate = birthdate;
-		this.sex = sex;
-		this.email = email;
-		this.roll = roll;
-		this.active = active;
-		this.routesList = routesList;
-	}
-	
-	public User(String userName, int dni, String name, String lastName, String address, Date birthdate, String sex,
-			String email, String roll, boolean active) {
-		super();
-		this.userName = userName;
-		this.dni = dni;
-		this.name = name;
-		this.lastName = lastName;
-		this.address = address;
-		this.birthdate = birthdate;
-		this.sex = sex;
-		this.email = email;
-		this.roll = roll;
-		this.active = active;
-		this.routesList = new ArrayList<Route>();
-	}
 	public String getName() {
 		return name;
 	}

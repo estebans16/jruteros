@@ -1,29 +1,47 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Travel {
-	private ArrayList<Point> pointsList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-	public ArrayList<Point> getPointsList() {
+@Entity
+public class Travel implements Serializable {
+	@Id @GeneratedValue
+	private Long id;
+	@OneToMany(mappedBy="point")
+	private ArrayList<Apoint> pointsList;
+
+	public Long getId() {
+		return id;
+	}
+
+	public ArrayList<Apoint> getPointsList() {
 		return pointsList;
 	}
 
-	public void setPointsList(ArrayList<Point> pointsList) {
+	public void setPointsList(ArrayList<Apoint> pointsList) {
 		this.pointsList = pointsList;
 	}
 	
-	public boolean addPoint(Point point){
+	public boolean addPoint(Apoint point){
 		return this.pointsList.add(point);
 	}
 	
-	public boolean removePoint(Point point){
+	public boolean removePoint(Apoint point){
 		return this.pointsList.remove(point);
 	}
 
-	public Travel(ArrayList<Point> pointsList) {
+	public Travel(ArrayList<Apoint> pointsList) {
 		super();
 		this.pointsList = pointsList;
+	}
+	
+	public Travel() {
+		super();
 	}
 
 }

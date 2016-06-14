@@ -1,32 +1,43 @@
 package models;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Route {
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Route implements Serializable {
+	@Id @GeneratedValue
+	private Long id;
 	private String name;
 	private String description;
-	private String privacy;
+	private boolean isPublic;
 	private Travel travel;
-	private String format;
+	private boolean isCircular;
 	private float distance;
-	private String difficulty;
+	private Difficulty difficulty;
 	private String activity;
 	private Time time;
 	private Date date;
 	private ArrayList<Photo> photoList;
+	@OneToOne
+	private User owner;
 
-	public Route(String name, String description, String privacy,
-			Travel travel, String format, float distance, String difficulty,
+	public Route(String name, String description, boolean isPublic,
+			Travel travel, boolean isCircular, float distance, Difficulty difficulty,
 			String activity, Time time, Date date, ArrayList<Photo> photos) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.privacy = privacy;
+		this.isPublic = isPublic;
 		this.travel = travel;
-		this.format = format;
+		this.isCircular = isCircular;
 		this.distance = distance;
 		this.difficulty = difficulty;
 		this.activity = activity;
@@ -34,7 +45,14 @@ public class Route {
 		this.date = date;
 		this.photoList = photos;
 	}
-
+	
+	public Route(){
+		super();
+	}
+	
+	public Long getId(){
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -51,12 +69,20 @@ public class Route {
 		this.description = description;
 	}
 
-	public String getPrivacy() {
-		return privacy;
+	public boolean isPublic() {
+		return isPublic;
 	}
 
-	public void setPrivacy(String privacy) {
-		this.privacy = privacy;
+	public void setPublic(boolean isPublic) {
+		this.isPublic = isPublic;
+	}
+
+	public ArrayList<Photo> getPhotoList() {
+		return photoList;
+	}
+
+	public void setPhotoList(ArrayList<Photo> photoList) {
+		this.photoList = photoList;
 	}
 
 	public Travel getTravel() {
@@ -67,12 +93,12 @@ public class Route {
 		this.travel = travel;
 	}
 
-	public String getFormat() {
-		return format;
+	public boolean isCircular() {
+		return isCircular;
 	}
 
-	public void setFormat(String format) {
-		this.format = format;
+	public void setCircular(boolean isCircular) {
+		this.isCircular = isCircular;
 	}
 
 	public float getDistance() {
@@ -83,11 +109,11 @@ public class Route {
 		this.distance = distance;
 	}
 
-	public String getDifficulty() {
+	public Difficulty getDifficulty() {
 		return difficulty;
 	}
 
-	public void setDifficulty(String difficulty) {
+	public void setDifficulty(Difficulty difficulty) {
 		this.difficulty = difficulty;
 	}
 
