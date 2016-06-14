@@ -3,6 +3,7 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,13 +26,14 @@ public class User implements Serializable {
 	private boolean active;
 	private ArrayList<Route> routesList;
 	private ArrayList<RouteScore> routeScoreList;
-	private ArrayList<TraveledRoute> traveledRouteList;
+	@OneToMany
+	private List<Route> traveledRoute;
 	
 	public User(String userName, int dni, String name, String lastName,
 			String address, Date birthdate, String sex, String email,
 			String roll, boolean active, ArrayList<Route> routesList,
 			ArrayList<RouteScore> routeScoreList,
-			ArrayList<TraveledRoute> traveledRouteList) {
+			ArrayList<Route> traveledRouteList) {
 		super();
 		this.userName = userName;
 		this.dni = dni;
@@ -45,7 +47,7 @@ public class User implements Serializable {
 		this.active = active;
 		this.routesList = routesList;
 		this.routeScoreList = routeScoreList;
-		this.traveledRouteList = traveledRouteList;
+		this.traveledRoute = traveledRouteList;
 	}
 	public User(){
 		super();
@@ -63,11 +65,11 @@ public class User implements Serializable {
 	public void setRouteScoreList(ArrayList<RouteScore> routeScoreList) {
 		this.routeScoreList = routeScoreList;
 	}
-	public ArrayList<TraveledRoute> getTraveledRouteList() {
-		return traveledRouteList;
+	public List<Route> getTraveledRouteList() {
+		return traveledRoute;
 	}
-	public void setTraveledRouteList(ArrayList<TraveledRoute> traveledRouteList) {
-		this.traveledRouteList = traveledRouteList;
+	public void setTraveledRouteList(ArrayList<Route> traveledRouteList) {
+		this.traveledRoute = traveledRouteList;
 	}
 	public ArrayList<Route> getRoutesList() {
 		return routesList;

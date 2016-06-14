@@ -54,14 +54,14 @@ public class JRuteros extends HttpServlet {
 		/*RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 		view.forward(request, response);*/
 		
-		/*Photo photo = new Photo("li", "lo");
+		Photo photo = new Photo("li", "lo");
 		PhotoDAOJDBC dao = new PhotoDAOJDBC();
 		dao.persistir(photo);
 		boolean existe = dao.existe("1");
 		
-		Photo photo2 = dao.recuperar(1);
-		System.out.println("La foto 1 es: " + photo2.getName());
-		System.out.println("existe: " + existe);*/
+		//Photo photo2 = dao.recuperar(1);
+		//System.out.println("La foto 1 es: " + photo2.getName());
+		System.out.println("existe: " + existe);
 		
 		/*Apoint point = new Apoint("123", "456");
 		PointDAOJDBC daoPoint = new PointDAOJDBC();

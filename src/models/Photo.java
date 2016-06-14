@@ -16,7 +16,7 @@ public class Photo implements Serializable {
 	private Long id;
 	private String name;
 	private String path;
-	@OneToOne(mappedBy="route")
+	@OneToOne
 	private Route route;
 	public Long getId(){
 		return id;
