@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,16 +25,20 @@ public class User implements Serializable {
 	private String email;
 	private String roll;
 	private boolean active;
-	private ArrayList<Route> routesList;
-	private ArrayList<RouteScore> routeScoreList;
+	@OneToMany(mappedBy="owner")
+	private List<Route> routesList;
 	@OneToMany
-	private List<Route> traveledRoute;
+	@JoinColumn(name="routeScore_id")
+	private List<RouteScore> routeScoreList;
+	@OneToMany
+	@JoinColumn(name="traveledRoute_id")
+	private List<TraveledRoute> traveledRoute;
 	
 	public User(String userName, int dni, String name, String lastName,
 			String address, Date birthdate, String sex, String email,
 			String roll, boolean active, ArrayList<Route> routesList,
 			ArrayList<RouteScore> routeScoreList,
-			ArrayList<Route> traveledRouteList) {
+			ArrayList<TraveledRoute> traveledRoutes) {
 		super();
 		this.userName = userName;
 		this.dni = dni;
@@ -47,7 +52,7 @@ public class User implements Serializable {
 		this.active = active;
 		this.routesList = routesList;
 		this.routeScoreList = routeScoreList;
-		this.traveledRoute = traveledRouteList;
+		this.traveledRoute = traveledRoutes;
 	}
 	public User(){
 		super();
@@ -59,23 +64,23 @@ public class User implements Serializable {
 
 	
 
-	public ArrayList<RouteScore> getRouteScoreList() {
+	public List<RouteScore> getRouteScoreList() {
 		return routeScoreList;
 	}
-	public void setRouteScoreList(ArrayList<RouteScore> routeScoreList) {
-		this.routeScoreList = routeScoreList;
+	public void setRouteScoreList(List<RouteScore> list) {
+		this.routeScoreList = list;
 	}
-	public List<Route> getTraveledRouteList() {
+	public List<TraveledRoute> getTraveledRouteList() {
 		return traveledRoute;
 	}
-	public void setTraveledRouteList(ArrayList<Route> traveledRouteList) {
-		this.traveledRoute = traveledRouteList;
+	public void setTraveledRouteList(List<TraveledRoute> list) {
+		this.traveledRoute = list;
 	}
-	public ArrayList<Route> getRoutesList() {
+	public List<Route> getRoutesList() {
 		return routesList;
 	}
-	public void setRoutesList(ArrayList<Route> routesList) {
-		this.routesList = routesList;
+	public void setRoutesList(List<Route> list) {
+		this.routesList = list;
 	}
 	public boolean isActive() {
 		return active;

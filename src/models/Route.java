@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -19,6 +22,7 @@ public class Route implements Serializable {
 	private String name;
 	private String description;
 	private boolean isPublic;
+	@OneToOne(optional=false)
 	private Travel travel;
 	private boolean isCircular;
 	private float distance;
@@ -26,8 +30,10 @@ public class Route implements Serializable {
 	private String activity;
 	private Time time;
 	private Date date;
-	private ArrayList<Photo> photoList;
-	@OneToOne
+	@OneToMany(mappedBy="route")
+	private List<Photo> photoList;
+	@ManyToOne(optional=true)
+	@JoinColumn(name="user_id")
 	private User owner;
 
 	public Route(String name, String description, boolean isPublic,
@@ -78,12 +84,12 @@ public class Route implements Serializable {
 		this.isPublic = isPublic;
 	}
 
-	public ArrayList<Photo> getPhotoList() {
+	public List<Photo> getPhotoList() {
 		return photoList;
 	}
 
-	public void setPhotoList(ArrayList<Photo> photoList) {
-		this.photoList = photoList;
+	public void setPhotoList(List<Photo> list) {
+		this.photoList = list;
 	}
 
 	public Travel getTravel() {
@@ -142,7 +148,7 @@ public class Route implements Serializable {
 		this.date = date;
 	}
 
-	public ArrayList<Photo> getPhotos() {
+	public List<Photo> getPhotos() {
 		return photoList;
 	}
 

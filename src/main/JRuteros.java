@@ -54,14 +54,14 @@ public class JRuteros extends HttpServlet {
 		/*RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 		view.forward(request, response);*/
 		
-		Photo photo = new Photo("li", "lo");
-		PhotoDAOJDBC dao = new PhotoDAOJDBC();
-		dao.persistir(photo);
-		boolean existe = dao.existe("1");
+		//Photo photo = new Photo("li", "lo");
+		//PhotoDAOJDBC dao = new PhotoDAOJDBC();
+		//dao.persistir(photo);
+		//boolean existe = dao.existe("1");
 		
 		//Photo photo2 = dao.recuperar(1);
 		//System.out.println("La foto 1 es: " + photo2.getName());
-		System.out.println("existe: " + existe);
+		//System.out.println("existe: " + existe);
 		
 		/*Apoint point = new Apoint("123", "456");
 		PointDAOJDBC daoPoint = new PointDAOJDBC();
@@ -92,12 +92,18 @@ public class JRuteros extends HttpServlet {
 		boolean existe = daoTraveledR.existe("1");
 		System.out.println("existe: " + existe);*/
 		
-		/*User user = new User("Admin", 33222111, "Juan", "Marconi", "La facu", new Date("25/01/1991"), "M", "juan.m@mail.com", "Admin", 
-							true, new ArrayList<Route>() , new ArrayList<RouteScore>(), new ArrayList<TraveledRoute>());
+		ArrayList<Route> routes = new ArrayList<Route>();
+		ArrayList<RouteScore> routeScores = new ArrayList<RouteScore>();
+		ArrayList<TraveledRoute> traveledRoutes = new ArrayList<TraveledRoute>();
+		
+		User user = new User("Admin", 33222111, "Juan", "Marconi", "La facu", 
+							new Date("25/01/1991"), "M", "juan.m@mail.com", "Admin", 
+							true, routes , routeScores, 
+							traveledRoutes);
 		UserDAOJDBC daoUser = new UserDAOJDBC();
 		daoUser.persistir(user);
 		boolean existe = daoUser.existe("1");
-		System.out.println("existe: " + existe);*/
+		System.out.println("existe: " + existe);
 		
 	}
 

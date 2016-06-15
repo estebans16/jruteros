@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +18,7 @@ public class Apoint implements Serializable {
 	private String longuitude;
 	private	String latitude;
 	@ManyToOne(optional = false)
+	@JoinColumn(name="travel_id")
 	private Travel travel;
 	
 	public Long getId(){

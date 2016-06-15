@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Table;
@@ -16,7 +18,8 @@ public class Photo implements Serializable {
 	private Long id;
 	private String name;
 	private String path;
-	@OneToOne
+	@ManyToOne(optional=false)
+	@JoinColumn(name="route_id")
 	private Route route;
 	public Long getId(){
 		return id;

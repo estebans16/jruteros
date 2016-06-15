@@ -14,9 +14,9 @@ import javax.persistence.OneToOne;
 public class Travel implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
-	@OneToMany
+	@OneToMany(mappedBy="travel")
 	private List<Apoint> pointsList;
-	@OneToOne
+	@OneToOne(optional=false, mappedBy="id")
 	private Route route;
 
 	public Long getId() {
