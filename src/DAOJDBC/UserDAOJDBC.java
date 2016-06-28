@@ -15,29 +15,16 @@ public class UserDAOJDBC implements UserDAO {
 	public UserDAOJDBC() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override
-	public void borrar(User entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
-		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
-	}
+
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.User WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<User> users = (List<User>) query.getResultList();
-		
+		User user = connection.getEm().find(User.class, id);
 		connection.disconnectToDB();
 		
-		if (!users.isEmpty()) {
+		if (user != null) {
 			return true;
 		} else {
 			return false;
@@ -63,7 +50,7 @@ public class UserDAOJDBC implements UserDAO {
 		connection.connectToDB();
 		
 		connection.getEm().persist(entity);
-		
+	
 		connection.disconnectToDB();
 		return entity;
 	}
@@ -72,10 +59,7 @@ public class UserDAOJDBC implements UserDAO {
 	public User recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.User WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		User user = (User) query.getSingleResult();
+		User user = connection.getEm().find(User.class, id);
 		
 		connection.disconnectToDB();
 		return user;
@@ -86,21 +70,7 @@ public class UserDAOJDBC implements UserDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		User user = this.recuperar(entity.getId());
-		user.setActive(entity.isActive());
-		user.setAddress(entity.getAddress());
-		user.setBirthdate(entity.getBirthdate());
-		user.setDni(entity.getDni());
-		user.setEmail(entity.getEmail());
-		user.setLastName(entity.getLastName());
-		user.setName(entity.getName());
-		user.setRoll(entity.getRoll());
-		user.setRouteScoreList(entity.getRouteScoreList());
-		user.setRoutesList(entity.getRoutesList());
-		user.setSex(entity.getSex());
-		user.setTraveledRouteList(entity.getTraveledRouteList());
-		user.setUserName(entity.getUserName());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -110,11 +80,21 @@ public class UserDAOJDBC implements UserDAO {
 	public boolean borrar(Serializable id) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
+		
 		connection.connectToDB();
-		User user = this.recuperar(id);
+		User user = connection.getEm().find(User.class, id);
 		connection.getEm().remove(user);
 		connection.disconnectToDB();
 		return true;
 	}
+
+
+	@Override
+	public void borrar(User entity) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }

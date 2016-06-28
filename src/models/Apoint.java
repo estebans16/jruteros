@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Point")
 public class Apoint implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
@@ -21,6 +21,15 @@ public class Apoint implements Serializable {
 	@JoinColumn(name="travel_id")
 	private Travel travel;
 	
+	public Travel getTravel() {
+		return travel;
+	}
+	public void setTravel(Travel travel) {
+		this.travel = travel;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getId(){
 		return id;
 	}
@@ -40,6 +49,7 @@ public class Apoint implements Serializable {
 		super();
 		this.longuitude = longuitude;
 		this.latitude = latitude;
+		this.travel = travel;
 	}
 	public Apoint() {
 		super();

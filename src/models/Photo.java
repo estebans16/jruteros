@@ -24,6 +24,15 @@ public class Photo implements Serializable {
 	public Long getId(){
 		return id;
 	}
+	
+	public Route getRoute() {
+		return route;
+	}
+
+	public void setRoute(Route route) {
+		this.route = route;
+	}
+
 	public String getName() {
 		return name;
 	}

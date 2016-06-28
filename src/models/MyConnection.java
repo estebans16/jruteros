@@ -11,7 +11,19 @@ public class MyConnection {
 	
 	private EntityManager em;
 	private EntityTransaction etx;
-
+	
+	/*private EntityManagerFactory emf;
+	
+	public EntityManagerFactory getEntityManagerFactory() {
+        if(emf == null) {
+            emf = Persistence.createEntityManagerFactory("JRuteros");
+        }
+        /*if(DEBUG) {
+            System.out.println("factory created on: " + new Date());
+        }
+        return emf;
+    }*/
+	
 	public MyConnection() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,8 +45,7 @@ public class MyConnection {
 	}
 	
 	public void connectToDB(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JRuteros");
-		this.em = emf.createEntityManager();
+		this.em = EMF.getInstance().getEMF().createEntityManager(); 
 		this.etx = this.em.getTransaction();
 		this.etx.begin();
 	}
@@ -42,6 +53,14 @@ public class MyConnection {
 	public void disconnectToDB() {
 		this.etx.commit();
 		this.em.close();
+	}
+	
+	public void connectToDBWithOutTrans(){
+		this.em = EMF.getInstance().getEMF().createEntityManager(); 
+	}
+	
+	public void disconnectToDBWithOutTrans(){
+		this.em.close(); 
 	}
 
 }

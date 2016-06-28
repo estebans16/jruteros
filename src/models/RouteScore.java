@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -12,13 +14,16 @@ public class RouteScore implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
 	private int score;
-	@OneToOne(optional = false)
+	@ManyToOne(optional=false)
 	private Route route;
+	@ManyToOne(optional = false)
+	private User user;
 
-	public RouteScore(int score, Route route) {
+	public RouteScore(int score, Route route, User user) {
 		super();
 		this.score = score;
 		this.route = route;
+		this.user = user;
 	}
 	public RouteScore() {
 		super();

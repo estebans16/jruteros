@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import models.MyConnection;
 import models.Photo;
 import models.Travel;
+import models.User;
 import interfacesDAO.TravelDAO;
 
 public class TravelDAOJDBC implements TravelDAO {
@@ -18,12 +19,6 @@ public class TravelDAOJDBC implements TravelDAO {
 	
 	@Override
 	public void borrar(Travel entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
-		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
 	}
 
 	@Override
@@ -31,13 +26,10 @@ public class TravelDAOJDBC implements TravelDAO {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.Travel WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<Travel> travels = (List<Travel>) query.getResultList();
-		
+		Travel travel = connection.getEm().find(Travel.class, id);
 		connection.disconnectToDB();
 		
-		if (!travels.isEmpty()) {
+		if (travel != null){
 			return true;
 		} else {
 			return false;
@@ -72,10 +64,7 @@ public class TravelDAOJDBC implements TravelDAO {
 	public Travel recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.Travel WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		Travel travel = (Travel) query.getSingleResult();
+		Travel travel = connection.getEm().find(Travel.class, id);
 		
 		connection.disconnectToDB();
 		return travel;
@@ -86,9 +75,7 @@ public class TravelDAOJDBC implements TravelDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Travel travel = this.recuperar(entity.getId());
-		travel.setPointsList(entity.getPointsList());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -99,7 +86,7 @@ public class TravelDAOJDBC implements TravelDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Travel travel = this.recuperar(id);
+		Travel travel = connection.getEm().find(Travel.class, id);
 		connection.getEm().remove(travel);
 		connection.disconnectToDB();
 		return true;

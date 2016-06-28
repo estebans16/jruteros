@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Route implements Serializable {
 	private String name;
 	private String description;
 	private boolean isPublic;
-	@OneToOne(optional=false)
+	@OneToOne(optional=false, cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	private Travel travel;
 	private boolean isCircular;
 	private float distance;
@@ -30,11 +31,14 @@ public class Route implements Serializable {
 	private String activity;
 	private Time time;
 	private Date date;
-	@OneToMany(mappedBy="route")
+	@OneToMany(mappedBy="route",  cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	private List<Photo> photoList;
-	@ManyToOne(optional=true)
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User owner;
+	@OneToMany
+	@JoinColumn(name="route_id")
+	private List<RouteScore> routeScores;
 
 	public Route(String name, String description, boolean isPublic,
 			Travel travel, boolean isCircular, float distance, Difficulty difficulty,
@@ -57,6 +61,26 @@ public class Route implements Serializable {
 		super();
 	}
 	
+	
+	public Route(String name, String description, boolean isPublic, Travel travel, boolean isCircular, float distance,
+			Difficulty difficulty, String activity, Time time, Date date, List<Photo> photoList,List<RouteScore> routeScores,
+			User owner) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.isPublic = isPublic;
+		this.travel = travel;
+		this.isCircular = isCircular;
+		this.distance = distance;
+		this.difficulty = difficulty;
+		this.activity = activity;
+		this.time = time;
+		this.date = date;
+		this.photoList = photoList;
+		this.owner = owner;
+		this.routeScores = routeScores;
+	}
+
 	public Long getId(){
 		return id;
 	}

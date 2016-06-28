@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import models.Apoint;
 import models.MyConnection;
 import models.Photo;
+import models.User;
 import interfacesDAO.PointDAO;
 
 public class PointDAOJDBC implements PointDAO {
@@ -19,26 +20,16 @@ public class PointDAOJDBC implements PointDAO {
 	
 	@Override
 	public void borrar(Apoint entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
-		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
 	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.Apoint WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<Apoint> points = (List<Apoint>) query.getResultList();
-		
+		Apoint point = connection.getEm().find(Apoint.class, id);
 		connection.disconnectToDB();
 		
-		if (!points.isEmpty()) {
+		if (point != null) {
 			return true;
 		} else {
 			return false;
@@ -73,10 +64,7 @@ public class PointDAOJDBC implements PointDAO {
 	public Apoint recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.aPoint WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		Apoint point = (Apoint) query.getSingleResult();
+		Apoint point = connection.getEm().find(Apoint.class, id);
 		
 		connection.disconnectToDB();
 		return point;
@@ -87,10 +75,7 @@ public class PointDAOJDBC implements PointDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Apoint point = this.recuperar(entity.getId());
-		point.setLatitude(entity.getLatitude());
-		point.setLonguitude(entity.getLonguitude());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -101,7 +86,7 @@ public class PointDAOJDBC implements PointDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Apoint point = this.recuperar(id);
+		Apoint point = connection.getEm().find(Apoint.class, id);
 		connection.getEm().remove(point);
 		connection.disconnectToDB();
 		return true;

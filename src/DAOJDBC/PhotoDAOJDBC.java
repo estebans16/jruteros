@@ -13,6 +13,7 @@ import javax.persistence.Query;
 
 import models.MyConnection;
 import models.Photo;
+import models.User;
 import interfacesDAO.PhotoDAO;
 
 public class PhotoDAOJDBC implements PhotoDAO{
@@ -26,10 +27,7 @@ public class PhotoDAOJDBC implements PhotoDAO{
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Photo photo = this.recuperar(entity.getId());
-		photo.setName(entity.getName());
-		photo.setPath(entity.getPath());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -40,7 +38,7 @@ public class PhotoDAOJDBC implements PhotoDAO{
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Photo photo = this.recuperar(id);
+		Photo photo = connection.getEm().find(Photo.class, id);
 		connection.getEm().remove(photo);
 		connection.disconnectToDB();
 		return true;
@@ -48,26 +46,16 @@ public class PhotoDAOJDBC implements PhotoDAO{
 
 	@Override
 	public void borrar(Photo entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
-		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
 	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.Photo WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<Photo> photos = (List<Photo>) query.getResultList();
-		
+		Photo photo = connection.getEm().find(Photo.class, id);
 		connection.disconnectToDB();
 		
-		if (!photos.isEmpty()) {
+		if (photo != null) {
 			return true;
 		} else {
 			return false;
@@ -103,9 +91,7 @@ public class PhotoDAOJDBC implements PhotoDAO{
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM Photo p WHERE p.id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		Photo photo = (Photo) query.getSingleResult();
+		Photo photo = connection.getEm().find(Photo.class, id);
 		
 		connection.disconnectToDB();
 		return photo;

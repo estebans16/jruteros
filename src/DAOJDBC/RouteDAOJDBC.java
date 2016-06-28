@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import models.MyConnection;
 import models.Photo;
 import models.Route;
+import models.User;
 
 public class RouteDAOJDBC implements RouteDAO {
 
@@ -19,26 +20,17 @@ public class RouteDAOJDBC implements RouteDAO {
 	
 	@Override
 	public void borrar(Route entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
 		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
 	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.Route WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<Route> routes = (List<Route>) query.getResultList();
-		
+		Route route = connection.getEm().find(Route.class, id);
 		connection.disconnectToDB();
 		
-		if (!routes.isEmpty()) {
+		if (route != null) {
 			return true;
 		} else {
 			return false;
@@ -73,11 +65,7 @@ public class RouteDAOJDBC implements RouteDAO {
 	public Route recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.Route WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		Route route = (Route) query.getSingleResult();
-		
+		Route route = connection.getEm().find(Route.class, id);
 		connection.disconnectToDB();
 		return route;
 	}
@@ -87,19 +75,7 @@ public class RouteDAOJDBC implements RouteDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Route route = this.recuperar(entity.getId());
-		route.setActivity(entity.getActivity());
-		route.setCircular(entity.isCircular());
-		route.setDate(entity.getDate());
-		route.setDescription(entity.getDescription());
-		route.setDifficulty(entity.getDifficulty());
-		route.setDistance(entity.getDistance());
-		route.setName(entity.getName());
-		route.setPhotoList(entity.getPhotoList());
-		route.setPublic(entity.isPublic());
-		route.setTime(entity.getTime());
-		route.setTravel(entity.getTravel());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -110,7 +86,7 @@ public class RouteDAOJDBC implements RouteDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Route route = this.recuperar(id);
+		Route route = connection.getEm().find(Route.class, id);
 		connection.getEm().remove(route);
 		connection.disconnectToDB();
 		return true;

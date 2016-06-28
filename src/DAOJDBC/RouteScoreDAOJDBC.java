@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import models.MyConnection;
 import models.Photo;
 import models.RouteScore;
+import models.User;
 import interfacesDAO.RouteScoreDAO;
 
 public class RouteScoreDAOJDBC implements RouteScoreDAO {
@@ -18,26 +19,17 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 	
 	@Override
 	public void borrar(RouteScore entity) {
-		MyConnection connection = new MyConnection();
-		connection.connectToDB();
-		
-		connection.getEm().remove(entity);
-		
-		connection.disconnectToDB();
+	
 	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		Query query = connection.getEm().createQuery("FROM models.RouteScore WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		List<RouteScore> routeScores = (List<RouteScore>) query.getResultList();
-		
+		RouteScore routeScores = connection.getEm().find(RouteScore.class, id);
 		connection.disconnectToDB();
 		
-		if (!routeScores.isEmpty()) {
+		if (routeScores !=null) {
 			return true;
 		} else {
 			return false;
@@ -73,9 +65,7 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.RouteScore WHERE id = :id");
-		query.setParameter("id", new Long(id.toString()));
-		RouteScore routeScore = (RouteScore) query.getSingleResult();
+		RouteScore routeScore = connection.getEm().find(RouteScore.class, id);
 		
 		connection.disconnectToDB();
 		return routeScore;
@@ -86,10 +76,7 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		RouteScore routeS = this.recuperar(entity.getId());
-		routeS.setRoute(entity.getRoute());
-		routeS.setScore(entity.getScore());
-		
+		connection.getEm().merge(entity);
 		connection.disconnectToDB();
 		
 		return true;
@@ -100,8 +87,8 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		RouteScore routeS = this.recuperar(id);
-		connection.getEm().remove(routeS);
+		RouteScore routeScore = connection.getEm().find(RouteScore.class, id);
+		connection.getEm().remove(routeScore);
 		connection.disconnectToDB();
 		return true;
 	}
