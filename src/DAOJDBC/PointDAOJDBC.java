@@ -92,4 +92,17 @@ public class PointDAOJDBC implements PointDAO {
 		return true;
 	}
 
+	@Override
+	public List<Apoint> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.Apoint");
+		List<Apoint> points = (List<Apoint>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return points;
+	}
+
 }

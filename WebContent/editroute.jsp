@@ -138,7 +138,10 @@
 						    <input id="travelfile" name="routetravel" type="file"
 											placeholder="Agregar mapa" class="form-control file-md"
 											required>
-							<img src="${pageContext.request.contextPath}${travel}" class="img-thumbnail" alt="${name}">
+							<div><input type="button" onclick="limpiarMapa()" value="Limpiar mapa"></div>
+
+							<div id="googleMap" style="width:500px;height:380px;"></div>
+							<!-- <img src="${pageContext.request.contextPath}${travel}" class="img-thumbnail" alt="${name}"> -->
 						  </div>
 						</div>
 						
@@ -250,5 +253,8 @@
 					<div class="col-md-2"></div>
 			</div>					   
 		  </div>
+		 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABMHYpyLdKOKw2DTFKI_28JyOyqTvni6g&callback=initMap"> </script>
+		  <script src="js/map.js"></script>
+	     
 	</jsp:body>
 </t:layout>

@@ -92,4 +92,17 @@ public class TravelDAOJDBC implements TravelDAO {
 		return true;
 	}
 
+	@Override
+	public List<Travel> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.Travel");
+		List<Travel> travels = (List<Travel>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return travels;
+	}
+
 }

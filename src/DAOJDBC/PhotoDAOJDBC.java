@@ -97,4 +97,17 @@ public class PhotoDAOJDBC implements PhotoDAO{
 		return photo;
 	}
 
+	@Override
+	public List<Photo> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.Photo");
+		List<Photo> photos = (List<Photo>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return photos;
+	}
+
 }

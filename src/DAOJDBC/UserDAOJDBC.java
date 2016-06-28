@@ -94,6 +94,20 @@ public class UserDAOJDBC implements UserDAO {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public List<User> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.User");
+		List<User> users = (List<User>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return users;
+	}
 	
 	
 

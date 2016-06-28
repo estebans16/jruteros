@@ -92,4 +92,17 @@ public class RouteDAOJDBC implements RouteDAO {
 		return true;
 	}
 
+	@Override
+	public List<Route> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.Route");
+		List<Route> routes = (List<Route>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return routes;
+	}
+
 }

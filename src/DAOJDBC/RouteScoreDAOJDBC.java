@@ -93,4 +93,17 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 		return true;
 	}
 
+	@Override
+	public List<RouteScore> todos() {
+		// TODO Auto-generated method stub
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.RouteScore");
+		List<RouteScore> routeScores = (List<RouteScore>) query.getResultList();
+		
+		connection.disconnectToDB();
+		return routeScores;
+	}
+
 }
