@@ -73,8 +73,7 @@ public class RouteResource {
 	
 	@DELETE
 	public void deleteApoint(@PathParam("param") String idRoute, @FormParam("id") String idPoint) {
-		System.out.println(idPoint);
-		if (idPoint == null){
+		if ("".equals(idPoint)){
 			routeService.deleteAllPoints(new Long(idRoute));
 		}
 		else{
