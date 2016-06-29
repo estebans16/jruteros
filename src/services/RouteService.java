@@ -16,12 +16,6 @@ public class RouteService {
 	TravelDAOJDBC travelDAO;
 	Route route ;
 	
-	/*public RouteService(String id) {
-		super();
-		route = routeDAO.recuperar(id);
-		pointDAO = new PointDAOJDBC();
-		routeDAO = new RouteDAOJDBC();
-	}*/
 	public RouteService() {
 		super();
 		pointDAO = new PointDAOJDBC();
@@ -67,21 +61,4 @@ public class RouteService {
 		pointDAO.borrarTodosPorTravel(route.getTravel().getId());
 	}
 	
-	/*
-	
-
-	public boolean existeApoint(String id) {
-		// TODO Auto-generated method stub
-		return pointDAO.existe(id);
-	}
-
-	
-
-	
-
-	public List<Route> getRoutesAsList() {
-		// TODO Auto-generated method stub
-		return routeDAO.todos();
-	}*/
-
 }
