@@ -21,7 +21,6 @@ function initialize() {
 		agregarMarker(e.latLng, map);
 
 	});
-
 	puntos = [];
 	obtenerMarkers();
 }
