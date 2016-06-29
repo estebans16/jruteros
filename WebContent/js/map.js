@@ -22,23 +22,23 @@ function initialize() {
 
 	});
 	puntos = [];
-	obtenerMarkers("adasd");
+	obtenerMarkers();
 }
 
 // Obtiene markers y los dibuja
 function obtenerMarkers(dibujar) {
 
 	$.ajax({
-		dataType : "json",
-		url : myURI,
-		type : "GET",
+		type: 'GET',
+        url: myURI,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
 		success : function(result) {
 			console.log("result " + result);
 			puntos = [];
 			$.each(result, function(i, dato) {
 				console.log("dato" + i + dato);
 				dibujarMarker(dato);
-
 			});
 			dibujarRecorrido();
 		}

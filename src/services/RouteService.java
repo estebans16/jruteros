@@ -61,9 +61,10 @@ public class RouteService {
 		
 	}
 
-	public void deleteAllApoint(Long long1) {
+	public void deleteAllPoints(Long id) {
 		// TODO Auto-generated method stub
-		
+		Route route = routeDAO.recuperar(id);
+		pointDAO.borrarTodosPorTravel(route.getTravel().getId());
 	}
 	
 	/*

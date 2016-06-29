@@ -104,5 +104,16 @@ public class PointDAOJDBC implements PointDAO {
 		connection.disconnectToDB();
 		return points;
 	}
+	
+	
+	public void borrarTodosPorTravel(Serializable id) {
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("DELETE FROM models.Apoint WHERE travel_id = :id");
+		query.setParameter("id", new Long(id.toString()));
+		query.executeUpdate();
+		connection.disconnectToDB();
+	}
 
 }

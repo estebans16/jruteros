@@ -16,6 +16,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
@@ -41,7 +42,7 @@ public class RouteResource {
 
 	public RouteResource() {
 		routeService = new RouteService();
-		this.createRoute();
+		//this.createRoute();
 		
 	}
 	
@@ -76,8 +77,8 @@ public class RouteResource {
 	}
 	
 	@DELETE
-	public void deleteApoint(@PathParam("param") String idPoint) {
-		routeService.deleteApoint(new Long(idPoint));
+	public void deleteApoint(@PathParam("param") String idRoute) {
+		routeService.deleteAllPoints(new Long(idRoute));
 	}
 	
 	
@@ -85,7 +86,7 @@ public class RouteResource {
 	public ApointResource getApoint(@PathParam("point") String id) {
 		return new ApointResource(uriInfo, request, id);
 	}*/
-	
+	/*
 	private void createRoute(){
 		ArrayList<Route> routes = new ArrayList<Route>();
 		ArrayList<RouteScore> routeScores = new ArrayList<RouteScore>();
@@ -163,5 +164,5 @@ public class RouteResource {
 		daoRoute.persistir(route);
 		daoRoute.persistir(route2);
 	}
-
+*/
 }

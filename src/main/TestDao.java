@@ -87,7 +87,7 @@ public class TestDao extends HttpServlet {
 		
 		//ROUTE
 		Apoint point = new Apoint("-34.932632", "-57.955059");
-		Apoint point1 = new Apoint("-34.934074", "-57.955917");
+		Apoint point1 = new Apoint("-57.950308", "-34.922448");
 		Apoint point2 = new Apoint("-34.93263123", "-57.955124");
 		Apoint point3 = new Apoint("-34.934022", "-57.955333");
 		
