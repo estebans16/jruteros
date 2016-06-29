@@ -1,5 +1,5 @@
 var map;
-var myURI = "/rest/route/1";
+var myURI = "/JRuteros/rest/route/1";
 var mapProp = {
 	center : new google.maps.LatLng(-34.9038055, -57.9392111, 18),
 	zoom : 10,
@@ -22,7 +22,7 @@ function initialize() {
 
 	});
 	puntos = [];
-	obtenerMarkers();
+	obtenerMarkers("adasd");
 }
 
 // Obtiene markers y los dibuja
@@ -31,7 +31,7 @@ function obtenerMarkers(dibujar) {
 	$.ajax({
 		dataType : "json",
 		url : myURI,
-
+		type : "GET",
 		success : function(result) {
 			console.log("result " + result);
 			puntos = [];

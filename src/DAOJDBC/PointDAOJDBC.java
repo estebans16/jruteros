@@ -41,7 +41,7 @@ public class PointDAOJDBC implements PointDAO {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.Apoint");
+		Query query = connection.getEm().createQuery("FROM models.Apoint WHERE travel_id = :id");
 		query.setParameter("id", new Long(id.toString()));
 		List<Apoint> points = (List<Apoint>) query.getResultList();
 		
