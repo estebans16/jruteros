@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/facelets/templates/layout.xhtml">
+	
+	<f:view> 
+	<ui:define name="body">
+		<div class="row text-center">
+		  		<div class='col-md-12'>
+					<legend class="login-text">Iniciar sesión</legend>
+		  			<div class="col-md-2"></div>
+		  			<div class="col-md-8">
+				   <h:form class="form-horizontal">
+					<fieldset>
+					<!-- Text input-->
+					<div class="form-group">
+					
+					  <label class="col-md-3 control-label" for="textinput">Usuario</label>  
+					  <div class="col-md-6">
+					  <h:inputText id="textinput" name="username" placeholder="Ingrese su usuario" class="form-control" />
+					  </div>
+					</div>
+					
+					<!-- Password input-->
+					<div class="form-group">
+					  <label class="col-md-3 control-label" for="passwordinput">Contraseña</label>
+					  <div class="col-md-6">
+					    <h:inputSecret id="passwordinput" name="userpass" placeholder="Ingrese su contraseña"
+											class="form-control input-md"/>
+					  </div>
+					</div>
+					
+					<!-- Button -->
+					<div class="form-group">
+					<div class=""></div>
+					  <div class="">
+					    <h:commandButton id="singlebutton" name="singlebutton" action="login" value="Iniciar sesión"
+											class="btn btn-primary"/>
+						
+					  </div>
+					</div>
+					
+					</fieldset>
+					
+					</h:form>
+					<!-- Registrate -->
+					<div class="row text-center">
+						Si no tienes cuentaasdasdasd <a
+								href="http://localhost:8080/JRuteros/signup">registrate!</a>
+					</div>
+					</div>
+					<div class="col-md-2"></div>
+			</div>					   
+		  </div>
+		</ui:define>
+		</f:view> 
+	</ui:composition>	

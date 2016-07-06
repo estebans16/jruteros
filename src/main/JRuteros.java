@@ -32,7 +32,7 @@ public class JRuteros extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("login.xhtml");
 		view.forward(request, response);
 		
 	}

@@ -19,11 +19,9 @@
 					role="button"> -->
 			      <span class="sr-only">Toggle navigation</span>
 			    </a>
-			    <!-- Navbar Right Menu -->
-			   
-			
-			 </nav>
-			</header>
+			    
+			 </nav><!-- Navbar Right Menu -->
+		</header>
 	</jsp:attribute>
 
 	<jsp:body>
