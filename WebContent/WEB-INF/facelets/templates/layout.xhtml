@@ -7,16 +7,19 @@
 	xmlns:f="http://java.sun.com/jsf/core" >
 
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<h:outputStylesheet library="css" name="jruteros.css" />
 	<h:outputStylesheet library="css" name="AdminLTE.css" />
-	<h:outputStylesheet library="css" name="skins/_all-skins.min.css" />
+	<h:outputStylesheet library="css" name="skins/_all-skins.css" />
 	<h:outputStylesheet library="plugins" name="datepicker/datepicker3.css" />
 	<h:outputStylesheet library="plugins" name="bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
 	<h:outputStylesheet library="plugins" name="select2/select2.css" />
 	<h:outputStylesheet library="css" name="font-awesome.css" />
 	<h:outputStylesheet library="css" name="font-awesome-animation.css" />
 	<h:outputStylesheet library="plugins" name="datatables/dataTables.bootstrap.css" />
+	
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+	
 	
 	<title>
 		<ui:insert name="titulo">
@@ -28,39 +31,12 @@
 	<div class="wrapper">
 		<div id="pageheader">
 			<ui:insert name="encabezado">
-	      		<!-- Logo -->
-				 <a href="${pageContext.request.contextPath}" class="logo">
-				   <!-- mini logo for sidebar mini 50x50 pixels -->
-				   <span class="logo-mini"><b>J</b>R</span>
-				   <!-- logo for regular state and mobile devices -->
-				   <span class="logo-lg"><b>JRuteros</b></span>
-				 </a>
-				
-				 <!-- Header Navbar: style can be found in header.less -->
-				 <nav class="navbar navbar-static-top" role="navigation">
-				   <!-- Sidebar toggle button-->
-				   <!-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas"
-					role="button"> -->
-				     <span class="sr-only">Toggle navigation</span>
-				   <!--  </a> -->
-	   			 </nav><!-- Navbar Right Menu -->
 	      	</ui:insert>
 	    </div>
 	    
 	    <div id="lateral">
 	    	<ui:insert name="menu">
-	      		<aside class="main-sidebar">
-			    	<!-- sidebar: style can be found in sidebar.less -->
-			   			 <section class="sidebar">
-					    	 <ul class="sidebar-menu">
-					  			<li class="header">OPCIONES</li>
-					  			<li> <a href="${pageContext.request.contextPath}/newroute"> <i class="fa fa-plus-square"></i> <span class='menu-options'>Nueva ruta</span></a></li>
-					  			<li class="active"> <a href="${pageContext.request.contextPath}/myroutes"> <i class="fa fa-th-list"></i> <span class='menu-options'>Mis rutas</span></a></li>
-					  			<li> <a href="${pageContext.request.contextPath}/searchroute"> <i class="fa fa-search"></i> <span class='menu-options'>Buscar ruta</span></a></li>
-							</ul>
-						</section>
-			    	<!-- /.sidebar -->
-				 </aside>
+	      		
 	      	</ui:insert>
 	    </div>
 
@@ -74,8 +50,8 @@
 	
 	        <div id="modal-holder"></div>
 	        <div id="body">
-	      	  <ui:insert name="body">
-	      	  </ui:insert>
+	      	  <ui:insert name="body"/>
+
 	      		
 	    	</div>
 	

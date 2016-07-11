@@ -7,7 +7,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="/WEB-INF/facelets/templates/layout.xhtml">
 	
-	<f:view> 
+	<ui:define name="encabezado">
+	
+		<ui:include src="/WEB-INF/facelets/headers/defaultHeader.xhtml"/>
+		
+	</ui:define>
+	
 	<ui:define name="body">
 		<div class="row text-center">
 		  		<div class='col-md-12'>
@@ -38,8 +43,7 @@
 					<div class="form-group">
 					<div class=""></div>
 					  <div class="">
-					    <h:commandButton id="singlebutton" name="singlebutton" action="login" value="Iniciar sesión"
-											class="btn btn-primary"/>
+					  	<h:commandButton value="Iniciar sesión" action="login"/>
 						
 					  </div>
 					</div>
@@ -49,7 +53,7 @@
 					</h:form>
 					<!-- Registrate -->
 					<div class="row text-center">
-						Si no tienes cuentaasdasdasd <a
+						Si no tienes cuenta <a
 								href="http://localhost:8080/JRuteros/signup">registrate!</a>
 					</div>
 					</div>
@@ -57,5 +61,5 @@
 			</div>					   
 		  </div>
 		</ui:define>
-		</f:view> 
+		
 	</ui:composition>	
