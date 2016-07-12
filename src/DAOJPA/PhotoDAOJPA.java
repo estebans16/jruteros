@@ -1,4 +1,4 @@
-package DAOJDBC;
+package DAOJPA;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ import models.Photo;
 import models.User;
 import interfacesDAO.PhotoDAO;
 
-public class PhotoDAOJDBC implements PhotoDAO{
+public class PhotoDAOJPA implements PhotoDAO{
 
-	public PhotoDAOJDBC() {
+	public PhotoDAOJPA() {
 		// TODO Auto-generated constructor stub
 	}
 

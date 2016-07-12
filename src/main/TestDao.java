@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sun.javafx.scene.traversal.Direction;
 
-import DAOJDBC.PhotoDAOJDBC;
-import DAOJDBC.PointDAOJDBC;
-import DAOJDBC.RouteDAOJDBC;
-import DAOJDBC.RouteScoreDAOJDBC;
-import DAOJDBC.TravelDAOJDBC;
-import DAOJDBC.UserDAOJDBC;
+import DAOJPA.PhotoDAOJPA;
+import DAOJPA.PointDAOJPA;
+import DAOJPA.RouteDAOJPA;
+import DAOJPA.RouteScoreDAOJPA;
+import DAOJPA.TravelDAOJPA;
+import DAOJPA.UserDAOJPA;
 import models.Apoint;
 import models.Difficulty;
 import models.Photo;
@@ -56,7 +56,7 @@ public class TestDao extends HttpServlet {
 							new Date("25/01/1991"), "M", "juan.m@mail.com", "Admin", 
 							true, routes , routeScores, 
 							traveledRoutes);
-		UserDAOJDBC daoUser = new UserDAOJDBC();
+		UserDAOJPA daoUser = new UserDAOJPA();
 		daoUser.persistir(user);
 		User user1 = new User("User", 33112111, "Manuel", "Marconi", "La facu", 
 				new Date("25/05/1993"), "M", "Manuel.m@mail.com", "User", 
@@ -144,7 +144,7 @@ public class TestDao extends HttpServlet {
 		
 		
 		
-		RouteDAOJDBC daoRoute = new RouteDAOJDBC();
+		RouteDAOJPA daoRoute = new RouteDAOJPA();
 		daoRoute.persistir(route);
 		daoRoute.persistir(route2);
 		//read
@@ -165,7 +165,7 @@ public class TestDao extends HttpServlet {
 		RouteScore routeS2 = new RouteScore(4, route, user1);
 		RouteScore routeS3 = new RouteScore(5, route, user1);
 		
-		RouteScoreDAOJDBC daoRouteS = new RouteScoreDAOJDBC();
+		RouteScoreDAOJPA daoRouteS = new RouteScoreDAOJPA();
 		daoRouteS.persistir(routeS);
 		daoRouteS.persistir(routeS2);
 		daoRouteS.persistir(routeS3);
@@ -184,7 +184,7 @@ public class TestDao extends HttpServlet {
 		
 		//PHOTOS
 		//read
-		PhotoDAOJDBC daoPhoto = new PhotoDAOJDBC();
+		PhotoDAOJPA daoPhoto = new PhotoDAOJPA();
 		boolean existePhoto = daoPhoto.existe(photo.getId());
 		System.out.println("Existe la foto 1: " + existePhoto);
 		//update
@@ -197,7 +197,7 @@ public class TestDao extends HttpServlet {
 		System.out.println("Se elimino la foto 4, existe?  " + daoPhoto.existe(photo4.getId()));
 		
 		//Point
-		PointDAOJDBC daoPoint = new PointDAOJDBC();
+		PointDAOJPA daoPoint = new PointDAOJPA();
 		boolean existePoint = daoPoint.existe(point.getId());
 		System.out.println("Existe el punto 1?: " + existePoint);
 		//update

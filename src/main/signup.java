@@ -28,16 +28,18 @@ public class signup extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("signup.jsp");
-		view.forward(request, response);
+		//RequestDispatcher view = request.getRequestDispatcher("signup.xhtml");
+		//view.forward(request, response);
+		response.sendRedirect("/JRuteros/faces/signup.xhtml");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-		view.forward(request, response);
+		//RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+		//view.forward(request, response);
+		response.sendRedirect("/JRuteros/faces/login.xhtml");
 	}
 
 }

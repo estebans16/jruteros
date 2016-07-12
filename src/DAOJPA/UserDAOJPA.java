@@ -1,6 +1,4 @@
-package DAOJDBC;
-
-import interfacesDAO.RouteDAO;
+package DAOJPA;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,28 +7,24 @@ import javax.persistence.Query;
 
 import models.MyConnection;
 import models.Photo;
-import models.Route;
 import models.User;
+import interfacesDAO.UserDAO;
 
-public class RouteDAOJDBC implements RouteDAO {
+public class UserDAOJPA implements UserDAO {
 
-	public RouteDAOJDBC() {
+	public UserDAOJPA() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override
-	public void borrar(Route entity) {
-		
-	}
+
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Route route = connection.getEm().find(Route.class, id);
+		User user = connection.getEm().find(User.class, id);
 		connection.disconnectToDB();
 		
-		if (route != null) {
+		if (user != null) {
 			return true;
 		} else {
 			return false;
@@ -38,40 +32,41 @@ public class RouteDAOJDBC implements RouteDAO {
 	}
 
 	@Override
-	public List<Route> recuperarTodos(Serializable id) {
+	public List<User> recuperarTodos(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.Route");
+		Query query = connection.getEm().createQuery("FROM models.User");
 		query.setParameter("id", new Long(id.toString()));
-		List<Route> routes = (List<Route>) query.getResultList();
+		List<User> users = (List<User>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return routes;
+		return users;
 	}
 
 	@Override
-	public Route persistir(Route entity) {
+	public User persistir(User entity) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
 		connection.getEm().persist(entity);
-		
+	
 		connection.disconnectToDB();
 		return entity;
 	}
 
 	@Override
-	public Route recuperar(Serializable id) {
+	public User recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		Route route = connection.getEm().find(Route.class, id);
+		User user = connection.getEm().find(User.class, id);
+		
 		connection.disconnectToDB();
-		return route;
+		return user;
 	}
 
 	@Override
-	public boolean actualizar(Route entity) {
+	public boolean actualizar(User entity) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
@@ -85,24 +80,35 @@ public class RouteDAOJDBC implements RouteDAO {
 	public boolean borrar(Serializable id) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
+		
 		connection.connectToDB();
-		Route route = connection.getEm().find(Route.class, id);
-		connection.getEm().remove(route);
+		User user = connection.getEm().find(User.class, id);
+		connection.getEm().remove(user);
 		connection.disconnectToDB();
 		return true;
 	}
 
+
 	@Override
-	public List<Route> todos() {
+	public void borrar(User entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<User> todos() {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.Route");
-		List<Route> routes = (List<Route>) query.getResultList();
+		Query query = connection.getEm().createQuery("FROM models.User");
+		List<User> users = (List<User>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return routes;
+		return users;
 	}
+	
+	
 
 }

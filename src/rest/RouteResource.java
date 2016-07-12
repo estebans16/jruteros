@@ -24,8 +24,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
-import DAOJDBC.RouteDAOJDBC;
-import DAOJDBC.UserDAOJDBC;
+import DAOJPA.RouteDAOJPA;
+import DAOJPA.UserDAOJPA;
 import models.Apoint;
 import models.Difficulty;
 import models.Photo;

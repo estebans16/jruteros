@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
- * Servlet implementation class JRuteros
+ * Servlet implementation class pruebaLogin
  */
-@WebServlet("/JRuteros")
-public class JRuteros extends HttpServlet {
+@WebServlet("/pruebaLogin")
+public class pruebaLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JRuteros() {
+    public pruebaLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +29,8 @@ public class JRuteros extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("/JRuteros/faces/login.xhtml");
-		//RequestDispatcher view = request.getRequestDispatcher("pruebaLogin.xhtml");
-		//view.forward(request, response);
-		
+		RequestDispatcher view = request.getRequestDispatcher("pruebaLogin.xhtml");
+		view.forward(request, response);
 	}
 
 	/**
@@ -42,7 +38,6 @@ public class JRuteros extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

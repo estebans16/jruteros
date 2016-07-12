@@ -1,30 +1,35 @@
-package DAOJDBC;
+package DAOJPA;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
 
+import models.Apoint;
 import models.MyConnection;
 import models.Photo;
 import models.User;
-import interfacesDAO.UserDAO;
+import interfacesDAO.PointDAO;
 
-public class UserDAOJDBC implements UserDAO {
+public class PointDAOJPA implements PointDAO {
 
-	public UserDAOJDBC() {
+	public PointDAOJPA() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	@Override
+	public void borrar(Apoint entity) {
+	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		User user = connection.getEm().find(User.class, id);
+		Apoint point = connection.getEm().find(Apoint.class, id);
 		connection.disconnectToDB();
 		
-		if (user != null) {
+		if (point != null) {
 			return true;
 		} else {
 			return false;
@@ -32,41 +37,41 @@ public class UserDAOJDBC implements UserDAO {
 	}
 
 	@Override
-	public List<User> recuperarTodos(Serializable id) {
+	public List<Apoint> recuperarTodos(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.User");
+		Query query = connection.getEm().createQuery("FROM models.Apoint WHERE travel_id = :id");
 		query.setParameter("id", new Long(id.toString()));
-		List<User> users = (List<User>) query.getResultList();
+		List<Apoint> points = (List<Apoint>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return users;
+		return points;
 	}
 
 	@Override
-	public User persistir(User entity) {
+	public Apoint persistir(Apoint entity) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
 		connection.getEm().persist(entity);
-	
+		
 		connection.disconnectToDB();
 		return entity;
 	}
 
 	@Override
-	public User recuperar(Serializable id) {
+	public Apoint recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		User user = connection.getEm().find(User.class, id);
+		Apoint point = connection.getEm().find(Apoint.class, id);
 		
 		connection.disconnectToDB();
-		return user;
+		return point;
 	}
 
 	@Override
-	public boolean actualizar(User entity) {
+	public boolean actualizar(Apoint entity) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
@@ -80,35 +85,35 @@ public class UserDAOJDBC implements UserDAO {
 	public boolean borrar(Serializable id) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
-		
 		connection.connectToDB();
-		User user = connection.getEm().find(User.class, id);
-		connection.getEm().remove(user);
+		Apoint point = connection.getEm().find(Apoint.class, id);
+		connection.getEm().remove(point);
 		connection.disconnectToDB();
 		return true;
 	}
 
-
 	@Override
-	public void borrar(User entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public List<User> todos() {
+	public List<Apoint> todos() {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.User");
-		List<User> users = (List<User>) query.getResultList();
+		Query query = connection.getEm().createQuery("FROM models.Apoint");
+		List<Apoint> points = (List<Apoint>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return users;
+		return points;
 	}
 	
 	
+	public void borrarTodosPorTravel(Serializable id) {
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("DELETE FROM models.Apoint WHERE travel_id = :id");
+		query.setParameter("id", new Long(id.toString()));
+		query.executeUpdate();
+		connection.disconnectToDB();
+	}
 
 }

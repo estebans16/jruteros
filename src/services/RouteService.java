@@ -3,24 +3,24 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAOJDBC.PointDAOJDBC;
-import DAOJDBC.RouteDAOJDBC;
-import DAOJDBC.TravelDAOJDBC;
+import DAOJPA.PointDAOJPA;
+import DAOJPA.RouteDAOJPA;
+import DAOJPA.TravelDAOJPA;
 import models.Apoint;
 import models.Route;
 import models.Travel;
 
 public class RouteService {
-	PointDAOJDBC pointDAO;
-	RouteDAOJDBC routeDAO;
-	TravelDAOJDBC travelDAO;
+	PointDAOJPA pointDAO;
+	RouteDAOJPA routeDAO;
+	TravelDAOJPA travelDAO;
 	Route route ;
 	
 	public RouteService() {
 		super();
-		pointDAO = new PointDAOJDBC();
-		routeDAO = new RouteDAOJDBC();
-		travelDAO = new TravelDAOJDBC();
+		pointDAO = new PointDAOJPA();
+		routeDAO = new RouteDAOJPA();
+		travelDAO = new TravelDAOJPA();
 	}
 	
 	public List<Apoint> getApoints(Long idRoute) {

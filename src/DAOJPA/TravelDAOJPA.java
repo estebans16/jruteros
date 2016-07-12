@@ -1,4 +1,4 @@
-package DAOJDBC;
+package DAOJPA;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,29 +7,29 @@ import javax.persistence.Query;
 
 import models.MyConnection;
 import models.Photo;
-import models.RouteScore;
+import models.Travel;
 import models.User;
-import interfacesDAO.RouteScoreDAO;
+import interfacesDAO.TravelDAO;
 
-public class RouteScoreDAOJDBC implements RouteScoreDAO {
+public class TravelDAOJPA implements TravelDAO {
 
-	public RouteScoreDAOJDBC() {
+	public TravelDAOJPA() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
-	public void borrar(RouteScore entity) {
-	
+	public void borrar(Travel entity) {
 	}
 
 	@Override
 	public boolean existe(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		RouteScore routeScores = connection.getEm().find(RouteScore.class, id);
+		
+		Travel travel = connection.getEm().find(Travel.class, id);
 		connection.disconnectToDB();
 		
-		if (routeScores !=null) {
+		if (travel != null){
 			return true;
 		} else {
 			return false;
@@ -37,20 +37,20 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 	}
 
 	@Override
-	public List<RouteScore> recuperarTodos(Serializable id) {
+	public List<Travel> recuperarTodos(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.RouteScore");
+		Query query = connection.getEm().createQuery("FROM models.Travel");
 		query.setParameter("id", new Long(id.toString()));
-		List<RouteScore> routeScores = (List<RouteScore>) query.getResultList();
+		List<Travel> travels = (List<Travel>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return routeScores;
+		return travels;
 	}
 
 	@Override
-	public RouteScore persistir(RouteScore entity) {
+	public Travel persistir(Travel entity) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
@@ -61,18 +61,17 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 	}
 
 	@Override
-	public RouteScore recuperar(Serializable id) {
+	public Travel recuperar(Serializable id) {
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		
-		RouteScore routeScore = connection.getEm().find(RouteScore.class, id);
+		Travel travel = connection.getEm().find(Travel.class, id);
 		
 		connection.disconnectToDB();
-		return routeScore;
+		return travel;
 	}
 
 	@Override
-	public boolean actualizar(RouteScore entity) {
+	public boolean actualizar(Travel entity) {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
@@ -87,23 +86,23 @@ public class RouteScoreDAOJDBC implements RouteScoreDAO {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
-		RouteScore routeScore = connection.getEm().find(RouteScore.class, id);
-		connection.getEm().remove(routeScore);
+		Travel travel = connection.getEm().find(Travel.class, id);
+		connection.getEm().remove(travel);
 		connection.disconnectToDB();
 		return true;
 	}
 
 	@Override
-	public List<RouteScore> todos() {
+	public List<Travel> todos() {
 		// TODO Auto-generated method stub
 		MyConnection connection = new MyConnection();
 		connection.connectToDB();
 		
-		Query query = connection.getEm().createQuery("FROM models.RouteScore");
-		List<RouteScore> routeScores = (List<RouteScore>) query.getResultList();
+		Query query = connection.getEm().createQuery("FROM models.Travel");
+		List<Travel> travels = (List<Travel>) query.getResultList();
 		
 		connection.disconnectToDB();
-		return routeScores;
+		return travels;
 	}
 
 }
