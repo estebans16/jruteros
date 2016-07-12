@@ -31,9 +31,9 @@ public class JRuteros extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("/JRuteros/faces/login.xhtml");
-		//RequestDispatcher view = request.getRequestDispatcher("pruebaLogin.xhtml");
-		//view.forward(request, response);
+		//response.sendRedirect("/JRuteros/faces/login.xhtml");
+		RequestDispatcher view = request.getRequestDispatcher("login.xhtml");
+		view.forward(request, response);
 		
 	}
 
