@@ -103,8 +103,8 @@
 					    <h:inputText id="birthdateinput" name="userbirthdate" type="date"  value="#{user.birthdate}"
 											placeholder="dd/mm/aaaa" class="form-control input-md"
 											required="true" requiredMessage="Este campo no puede ser vacio"
-											converterMessage="Fecha inválida. El formato correcto es dd-MM-yy. Por ejemplo 13-07-16">
-							<f:convertDateTime type="date" dateStyle="short"/>
+											converterMessage="Fecha inválida. El formato correcto es dd-MM-yyyy. Por ejemplo 13-07-1998">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
 						</h:inputText>
 						<h:message for="birthdateinput" style="color:red" />
 					  </div>

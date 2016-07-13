@@ -1,16 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
 	<ui:composition 
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="/WEB-INF/facelets/templates/layout.xhtml">
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="/WEB-INF/facelets/templates/layout.xhtml">
 	
 	<ui:define name="encabezado">
-	
 		<ui:include src="/WEB-INF/facelets/headers/defaultHeader.xhtml"/>
-		
 	</ui:define>
 	
 	<ui:define name="body">
@@ -26,7 +25,7 @@
 					
 					  <label class="col-md-3 control-label" for="textinput">Usuario</label>  
 					  <div class="col-md-6">
-					  <h:inputText id="textinput" name="username" placeholder="Ingrese su usuario" class="form-control" />
+					  <h:inputText id="textinput" name="username" value="#{loginController.userName}" placeholder="Ingrese su usuario" class="form-control" />
 					  </div>
 					</div>
 					
@@ -43,8 +42,7 @@
 					<div class="form-group">
 					<div class=""></div>
 					  <div class="">
-					  	<h:commandButton value="Iniciar sesión" action="login"/>
-						
+					  	<h:commandButton value="Iniciar sesión" action="#{loginController.login}"/>
 					  </div>
 					</div>
 					

@@ -30,6 +30,20 @@ public class UserDAOJPA implements UserDAO {
 			return false;
 		}
 	}
+	
+	public boolean existePorUserName(String userName) {
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.User WHERE userName = :userName");
+		query.setParameter("userName", userName);
+		
+		if (!query.getResultList().isEmpty()){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	@Override
 	public List<User> recuperarTodos(Serializable id) {
@@ -107,6 +121,18 @@ public class UserDAOJPA implements UserDAO {
 		
 		connection.disconnectToDB();
 		return users;
+	}
+
+
+	public User recuperarPorUserName(String userName) {
+		MyConnection connection = new MyConnection();
+		connection.connectToDB();
+		
+		Query query = connection.getEm().createQuery("FROM models.User WHERE userName = :userName");
+		query.setParameter("userName", userName);
+		User user = (User) query.getSingleResult();
+		
+		return user;
 	}
 	
 	

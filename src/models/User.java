@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class User implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
 	private String userName;
+	private String password;
 	private int dni;
 	private String name;
 	private String lastName;
@@ -55,6 +57,29 @@ public class User implements Serializable {
 		this.routeScores = routeScoreList;
 		this.traveledRoutes = traveledRoutes;
 	}
+	
+	public User(String userName, String password, int dni, String name, String lastName,
+			String address, Date birthdate, String sex, String email,
+			String roll, boolean active, ArrayList<Route> routesList,
+			ArrayList<RouteScore> routeScoreList,
+			ArrayList<Route> traveledRoutes) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.dni = dni;
+		this.name = name;
+		this.lastName = lastName;
+		this.address = address;
+		this.birthdate = birthdate;
+		this.sex = sex;
+		this.email = email;
+		this.roll = roll;
+		this.active = active;
+		this.routes = routesList;
+		this.routeScores = routeScoreList;
+		this.traveledRoutes = traveledRoutes;
+	}
+	
 	public User(){
 		super();
 	}
@@ -63,8 +88,27 @@ public class User implements Serializable {
 		return id;
 	}
 
-	
-
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public List<RouteScore> getRouteScores() {
+		return routeScores;
+	}
+	public void setRouteScores(List<RouteScore> routeScores) {
+		this.routeScores = routeScores;
+	}
+	public List<Route> getTraveledRoutes() {
+		return traveledRoutes;
+	}
+	public void setTraveledRoutes(List<Route> traveledRoutes) {
+		this.traveledRoutes = traveledRoutes;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public List<RouteScore> getRouteScoreList() {
 		return routeScores;
 	}
@@ -158,11 +202,17 @@ public class User implements Serializable {
 	}
 	
 	public String signup(){
-		this.roll="User";
-		this.active=true;
 		UserDAOJPA daoUser = new UserDAOJPA();
-		daoUser.persistir(this);
-		return "success";
+		if (!daoUser.existePorUserName(this.userName)) {
+			this.roll="User";
+			this.active=true;
+			int randomNum = 1000 + (int)(Math.random() * 9999);
+			this.password=String.valueOf(randomNum);
+			daoUser.persistir(this);
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
 
 }

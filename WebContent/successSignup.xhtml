@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+	<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="/WEB-INF/facelets/templates/layout.xhtml">
+	
+	<ui:define name="encabezado">
+		<ui:include src="/WEB-INF/facelets/headers/defaultHeader.xhtml"/>
+	</ui:define>
+	
+	<ui:define name="body">
+		<div class="row text-center">
+	  		<div class='col-md-12'>
+				<legend class="login-text">Registro exitoso!</legend>
+					<!-- Text input-->
+					
+					  <label class="control-label" for="textinput">Felicidades usuario #{user.userName}, su registro fue exitoso, su contraseña automatica es #{user.password}.
+				  		<br/>
+				  		Puede <h:link value="modificar su contraseña ahora" outcome="editUser"></h:link> o <h:link value="continuar" outcome="user"></h:link> y hacerlo luego en su perfil.
+					  </label>  
+			</div>					   
+		  </div>
+		</ui:define>
+		
+	</ui:composition>	
