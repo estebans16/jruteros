@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import DAOJPA.UserDAOJPA;
+
 @Entity
 public class User implements Serializable {
 	@Id @GeneratedValue
@@ -153,6 +155,14 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String signup(){
+		this.roll="User";
+		this.active=true;
+		UserDAOJPA daoUser = new UserDAOJPA();
+		daoUser.persistir(this);
+		return "success";
 	}
 
 }

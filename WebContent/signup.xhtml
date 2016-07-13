@@ -46,8 +46,9 @@
 					  <label class="col-md-3 control-label" for="textinput">Usuario</label>  
 					  <div class="col-md-8">
 					  <h:inputText id="textinput" name="username" type="text"
-											placeholder="Ingrese su usuario" class="form-control"
-											required="true" />
+											placeholder="Ingrese su usuario" value="#{user.userName}" class="form-control"
+											required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="textinput" style="color:red" />
 					  </div>
 					</div>
 					
@@ -55,9 +56,10 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="dniinput">DNI</label>
 					  <div class="col-md-8">
-					    <h:inputText id="dniinput" name="userdni" type="number"
+					    <h:inputText id="dniinput" name="userdni" type="number" value="#{user.dni}"
 											placeholder="Ingrese su DNI" class="form-control input-md"
-											required="true" />
+											required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="dniinput" style="color:red" />
 					  </div>
 					</div>
 					
@@ -65,9 +67,10 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="nameinput">Nombre/s</label>
 					  <div class="col-md-8">
-					    <h:inputText id="nameinput" name="username" type="text"
+					    <h:inputText id="nameinput" name="username" type="text" value="#{user.name}"
 											placeholder="Ingrese su nombre" class="form-control input-md"
-											required="true" />
+											required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="nameinput" style="color:red" />
 					  </div>
 					</div>
 					
@@ -75,9 +78,10 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="lastnameinput">Apellido/s</label>
 					  <div class="col-md-8">
-					    <h:inputText id="lastnameinput" name="userlastname" type="text"
+					    <h:inputText id="lastnameinput" name="userlastname" type="text" value="#{user.lastName}" 
 											placeholder="Ingrese su apellido"
-											class="form-control input-md" required="true" />
+											class="form-control input-md" required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="lastnameinput" style="color:red" />
 					  </div>
 					</div>
 					
@@ -85,9 +89,10 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="addressinput">Domicilio</label>
 					  <div class="col-md-8">
-					    <h:inputText id="addressinput" name="useraddress" type="text"
+					    <h:inputText id="addressinput" name="useraddress" type="text" value="#{user.address}"
 											placeholder="Ingrese su domicilio"
-											class="form-control input-md" required="true" />
+											class="form-control input-md" required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="addressinput" style="color:red" />
 					  </div>
 					</div>
 					
@@ -95,23 +100,25 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="birthdateinput">Fecha de nacimiento</label>
 					  <div class="col-md-8">
-					    <h:inputText id="birthdateinput" name="userbirthdate" type="date"
+					    <h:inputText id="birthdateinput" name="userbirthdate" type="date"  value="#{user.birthdate}"
 											placeholder="dd/mm/aaaa" class="form-control input-md"
-											required="true" />
+											required="true" requiredMessage="Este campo no puede ser vacio"
+											converterMessage="Fecha inválida. El formato correcto es dd-MM-yy. Por ejemplo 13-07-16">
+							<f:convertDateTime type="date" dateStyle="short"/>
+						</h:inputText>
+						<h:message for="birthdateinput" style="color:red" />
 					  </div>
 					</div>
 					
 					<!-- Sex radio -->
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="sexradio">Sexo</label>
-					  <div id="sexradio" class="col-md-4">
-					  
-					  	<h:selectOneRadio value="">
+					  <div class="col-md-4">
+					  	<h:selectOneRadio id="sexradio" value="#{user.sex}" required="true" requiredMessage="Este campo no puede ser vacio">
 				   			<f:selectItem itemValue="male" itemLabel="Masculino" />
 				   			<f:selectItem itemValue="female" itemLabel="Femenino" />
    						</h:selectOneRadio>
-					 
-						
+   						<h:message for="sexradio" style="color:red" />
 					  </div>
 					</div>
 					
@@ -119,28 +126,27 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="emailinput">Email</label>
 					  <div class="col-md-8">
-					    <h:inputText id="emailinput" name="useremail" type="email"
+					    <h:inputText id="emailinput" name="useremail" type="email" value="#{user.email}"
 											placeholder="email@ejemplo.com" class="form-control input-md"
-											required="true" />
+											required="true" requiredMessage="Este campo no puede ser vacio"/>
+						<h:message for="emailinput" style="color:red" />
 					  </div>
 					</div>
 					
 					<!-- Button -->
 					<div class="form-group">
-						<div class="col-md-5"></div>
-						<div class="col-md-5">
-						
-						  <div class="">
-						 
-							<h:commandButton id="singlebutton" name="singlebutton" value="Registrar" action="signup" class="btn btn-primary"/>
-							</div>
+						<div class="row text-center">
+							<h:commandButton value="Registrar" action="#{user.signup}" class="btn btn-primary"/>
+						</div>
+						<br />
+						<div class="row text-center">
+							Si ya tienes cuenta <a href="http://localhost:8080/JRuteros/JRuteros">inicia sesión!</a>
 						</div>
 					</div>
 					</fieldset>
 					</h:form>
 					
 					</div>
-					<div class="col-md-2"></div>
 					
 			</div>					   
 		  </div>
