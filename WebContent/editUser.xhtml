@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+	<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		template="/WEB-INF/facelets/templates/layout.xhtml">
+		
+	<ui:define name="encabezado">
+		<ui:include src="/WEB-INF/facelets/headers/userHeader.xhtml"/>
+	</ui:define>
+	
+	<ui:define name="menu">
+		<ui:include src="/WEB-INF/facelets/menus/userMenu.xhtml"/>
+		
+	</ui:define>
+	<ui:define name="body">
+		<div class="container-fluid">
+			<div class="row">
+		  		<div class='col-md-12'>
+				   <!-- Form Name -->
+					<legend class="login-text">Editar</legend>
+					
+					<div class="row text-center">
+						Completa todos los campos y luego presiona guardar<br></br>
+					</div>
+				   <div class="col-md-2"></div>
+				   <div class="col-md-8">
+				 	<h:form class="form-horizontal">
+					<fieldset>
+					
+						<ui:include src="/WEB-INF/facelets/forms/userForm.xhtml"/>
+					<!-- Button -->
+					<div class="form-group">
+						<div class="row text-center">
+							<h:commandButton value="Guardar" action="#{user.signup}" class="btn btn-primary"/>
+						</div>
+						<br />
+					</div>
+					</fieldset>
+					</h:form>
+					
+					</div>
+					
+			</div>					   
+		  </div>
+		</div>
+	
+	</ui:define>
+	
+	</ui:composition>

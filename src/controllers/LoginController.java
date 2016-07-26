@@ -41,13 +41,26 @@ public class LoginController {
 
 	public String login(){
 		UserDAOJPA daoUser = new UserDAOJPA();
+		FacesContext context = FacesContext.getCurrentInstance();
 		if (daoUser.existePorUserName(this.userName)) {
 			User user = daoUser.recuperarPorUserName(this.userName);
 			this.user = user;
+			context.getExternalContext().getSessionMap().put("user", user);
+	        //    return "userhome?faces-redirect=true";
 			return "success";
 		} else {
 			return "failure";
 		}
+		
+		 /* if (user == null) {
+	            context.addMessage(null, new FacesMessage("Unknown login, try again"));
+	            username = null;
+	            password = null;
+	            return null;
+	        } else {
+	            context.getExternalContext().getSessionMap().put("user", user);
+	            return "userhome?faces-redirect=true";
+	        }*/
 	}
 	
 	public void logout() {
