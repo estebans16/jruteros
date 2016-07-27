@@ -201,7 +201,7 @@ public class User implements Serializable {
 		this.email = email;
 	}
 	
-	public String signup(){
+/*	public String signup(){
 		UserDAOJPA daoUser = new UserDAOJPA();
 		if (!daoUser.existePorUserName(this.userName)) {
 			this.roll="User";
@@ -213,6 +213,6 @@ public class User implements Serializable {
 		} else {
 			return "failure";
 		}
-	}
+	}*/
 
 }

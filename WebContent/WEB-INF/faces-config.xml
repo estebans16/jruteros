@@ -18,6 +18,12 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
+	 <managed-bean>
+		<managed-bean-name>userController</managed-bean-name>
+		<managed-bean-class>controllers.UserController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
 	<navigation-rule>
 		<from-view-id>/signup.xhtml</from-view-id>
 		<navigation-case>
@@ -59,6 +65,14 @@
 		<navigation-case>
 			<from-outcome>homepage</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/user.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/editUser.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
