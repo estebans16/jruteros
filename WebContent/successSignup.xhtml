@@ -15,10 +15,10 @@
 	<ui:define name="body">
 		<div class="row text-center">
 	  		<div class='col-md-12'>
-				<legend class="login-text">Registro exitoso!</legend>
+				<legend class="login-text alert alert-success">Registro exitoso!</legend>
 					<!-- Text input-->
 					
-					  <label class="control-label" for="textinput">Felicidades usuario #{user.userName}, su registro fue exitoso, su contraseña automatica es #{user.password}.
+					  <label class="control-label alert alert-success" for="textinput">Felicidades usuario #{userController.user.userName}, su registro fue exitoso, su contraseña automatica es #{userController.user.password}.
 				  		<br/>
 				  		Puede <h:link value="modificar su contraseña ahora" outcome="editUser"></h:link> o <h:link value="continuar" outcome="user"></h:link> y hacerlo luego en su perfil.
 					  </label>  

@@ -18,14 +18,14 @@
 					<legend class="login-text">Iniciar sesión</legend>
 		  			<div class="col-md-2"></div>
 		  			<div class="col-md-8">
+		  			<h:messages class="alert alert-error" globalOnly="true" />
 				   <h:form class="form-horizontal">
 					<fieldset>
 					<!-- Text input-->
-					<div class="form-group">
-					
+					<div class="form-group">					
 					  <label class="col-md-3 control-label" for="textinput">Usuario</label>  
 					  <div class="col-md-6">
-					  <h:inputText id="textinput" name="username" value="#{loginController.userName}" placeholder="Ingrese su usuario" class="form-control" />
+					  <h:inputText id="textinput" name="username" value="#{loginController.userName}" class="form-control" />
 					  </div>
 					</div>
 					
@@ -33,8 +33,7 @@
 					<div class="form-group">
 					  <label class="col-md-3 control-label" for="passwordinput">Contraseña</label>
 					  <div class="col-md-6">
-					    <h:inputSecret id="passwordinput" name="userpass" placeholder="Ingrese su contraseña"
-											class="form-control input-md"/>
+					    <h:inputSecret id="passwordinput" name="userpass" value="#{loginController.password}" class="form-control input-md"/>
 					  </div>
 					</div>
 					

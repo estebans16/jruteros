@@ -1,5 +1,6 @@
 package controllers;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import DAOJPA.UserDAOJPA;
@@ -10,6 +11,7 @@ public class LoginController {
 	private User user;
 	private String userName;
 	private String password;
+	private String msg;
 
 	public LoginController() {
 		// TODO Auto-generated constructor stub
@@ -37,7 +39,21 @@ public class LoginController {
 		this.password = password;
 	}
 
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 
 	public String login(){
 		UserDAOJPA daoUser = new UserDAOJPA();
@@ -45,10 +61,18 @@ public class LoginController {
 		if (daoUser.existePorUserName(this.userName)) {
 			User user = daoUser.recuperarPorUserName(this.userName);
 			this.user = user;
-			context.getExternalContext().getSessionMap().put("user", user);
-	        //    return "userhome?faces-redirect=true";
-			return "success";
+			if (user.getPassword().equals(this.password)) {
+				context.getExternalContext().getSessionMap().put("user", user);
+		        //    return "userhome?faces-redirect=true";
+				return "success";
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+								"Nombre de usuario o contraseña incorrecto/a", "Por favor ingresar un nombre de usuario y contraseña correctos"));
+				return "failure";
+			}
 		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Nombre de usuario o contraseña incorrecto/a", "Por favor ingresar un nombre de usuario y contraseña correctos"));
 			return "failure";
 		}
 		

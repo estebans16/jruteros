@@ -21,14 +21,14 @@
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<span class="hidden-xs"> #{user.userName} </span>
+						<span class="hidden-xs">#{user.userName}#{userController.user.userName}</span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
 							<p>
-								#{user.userName}
-								<small>#{user.name} #{user.lastName}</small>
+								#{user.userName}#{userController.user.userName}
+								<small>#{user.name} #{user.lastName}#{userController.user.name} #{userController.user.lastName}</small>
 							</p>
 						</li>
 						
