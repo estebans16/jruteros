@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
@@ -44,7 +45,7 @@ public class UserController implements Serializable {
 		}
 	}
 	
-	public String save(){
+	public String update(){
 		UserDAOJPA daoUser = new UserDAOJPA();
 		daoUser.actualizar(this.getUser());
 		return "success";
@@ -54,6 +55,7 @@ public class UserController implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Object a = context.getExternalContext().getSessionMap().get("user");
 		this.user  = (User) a;
+		//this.user = this.loginController.getUser();
 		return "success";
 	}
 	

@@ -9,3 +9,8 @@
 .login-text {
 	text-align: center;	
 }
+
+.pass-input {
+	display: none;
+	visibility: hidden;
+}

@@ -2,12 +2,12 @@
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14678384760480" configfile="/JRuteros/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="login" x="122" y="178" id="pf14678392523137" referenceLink="//@navigationRule.0/@fromViewId|" path="/login.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="user" x="122" y="562" id="pf14678392523139" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/user.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="signup.xhtml" x="122" y="946" id="pf14696387301840" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14696387301841 pf14696387301842" path="/signup.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="successSignup.xhtml" x="338" y="754" id="pf14696387301843" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf14696387301844 pf14696387301845" inlinks="pf14696387301841" path="/successSignup.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="failureSignup.xhtml" x="338" y="1138" id="pf14696387301846" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" inlinks="pf14696387301842" path="/failureSignup.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="editUser.xhtml" x="554" y="754" id="pf14696387301857" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14696387301844 pf146964833572913" path="/editUser.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="user.xhtml" x="554" y="1522" id="pf14696387301858" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14696387301859 pf146964833572913" inlinks="pf14696387301845 pf146963873018510" path="/user.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="1522" id="pf146963873018511" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf146963873018510 pf146963873018512" inlinks="pf146963873018512 pf14696387301859" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="signup.xhtml" x="122" y="946" id="pf14696387301840" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14696387301841 pf14696387301842" path="/signup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="successSignup.xhtml" x="338" y="754" id="pf14696387301843" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14696387301844 pf14696387301845" inlinks="pf14696387301841" path="/successSignup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="failureSignup.xhtml" x="338" y="1138" id="pf14696387301846" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14696387301842" path="/failureSignup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editUser.xhtml" x="554" y="754" id="pf14696387301857" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf14698158720171" inlinks="pf14696387301844 pf14698158530740" path="/editUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user.xhtml" x="554" y="1522" id="pf14696387301858" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" outlinks="pf14696387301859 pf14698158530740" inlinks="pf14696387301845 pf146963873018510 pf14698158720171" path="/user.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="1522" id="pf146963873018511" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" outlinks="pf146963873018510 pf146963873018512" inlinks="pf146963873018512 pf14696387301859" path="/login.xhtml"/>
   <links id="pf14696387301841" target="pf14696387301843" source="pf14696387301840" outcome="success"/>
   <links id="pf14696387301842" target="pf14696387301846" source="pf14696387301840" outcome="failure"/>
   <links id="pf14696387301844" target="pf14696387301857" source="pf14696387301843" outcome="editUser"/>
@@ -19,5 +19,6 @@
     <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf146964833572913" target="pf14696387301857" source="pf14696387301858" outcome="success"/>
+  <links id="pf14698158530740" target="pf14696387301857" source="pf14696387301858" outcome="success"/>
+  <links id="pf14698158720171" target="pf14696387301858" source="pf14696387301857" outcome="success"/>
 </pageflow:Pageflow>
