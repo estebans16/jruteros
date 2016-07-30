@@ -71,7 +71,7 @@ public class LoginController {
 				return "failure";
 			}
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Nombre de usuario o contraseña incorrecto/a", "Por favor ingresar un nombre de usuario y contraseña correctos"));
 			return "failure";
 		}
