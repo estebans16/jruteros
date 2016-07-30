@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/facelets/templates/layout.xhtml">
+	
+	<ui:define name="encabezado">
+		<ui:include src="/WEB-INF/facelets/headers/adminHeader.xhtml"/>
+	</ui:define>
+	
+	<ui:define name="menu">
+		<ui:include src="/WEB-INF/facelets/menus/adminMenu.xhtml"/>
+	</ui:define>
+	
+	<ui:define name="body">
+		<div class="container-fluid">
+			<div class="row">
+				<div class='col-md-12'>
+					<!-- Form Name -->
+					<legend class="login-text">Usuarios</legend>
+					
+					<div class="row text-center well">
+						Aquí puedes habilitar/desabilitar usuarios del sistema<br></br>
+					</div>
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						
+						<h:dataTable value="#{adminController.users}" var="u"
+			    			>
+			    			
+				    		<h:column>
+				    			<f:facet name="header">Usuario</f:facet>
+				    			#{u.userName}
+				    		</h:column>
+				    		<h:column>
+				    			<f:facet name="header">Nombre</f:facet>
+				    			#{u.name}
+				    		</h:column>
+				    		<h:column>
+				    			<f:facet name="header">Apellido</f:facet>
+				    			#{u.lastName}				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Email</f:facet>			    				
+				    			#{u.email}			    				
+				    		</h:column>		
+				    		<h:column>			    				
+				    			<f:facet name="header">DNI</f:facet>			    				
+				    			#{u.dni}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Fecha de Nac.</f:facet>			    				
+				    			#{u.birthday}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Dirección</f:facet>			    				
+				    			#{u.address}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Email</f:facet>			    				
+				    			#{u.email}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Sexo</f:facet>			    				
+				    			#{u.sex}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Rol</f:facet>			    				
+				    			#{u.roll}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Habilitado/Deshabilitado</f:facet>			    				
+				    			#{u.active}			    				
+				    		</h:column>
+				    			    			
+			    		</h:dataTable>
+						
+					</div>
+						
+				</div>					   
+			</div>
+			
+			<script type="text/javascript">
+				$(".pass-input").show();
+			</script>
+		</div>
+	</ui:define>
+</ui:composition>

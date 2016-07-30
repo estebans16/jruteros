@@ -64,7 +64,11 @@ public class LoginController {
 			if (user.getPassword().equals(this.password)) {
 				context.getExternalContext().getSessionMap().put("user", user);
 		        //    return "userhome?faces-redirect=true";
-				return "success";
+				if (user.getRoll().equals("Admin")) {
+					return "admin";
+				} else {
+					return "user";
+				}
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
 								"Nombre de usuario o contraseña incorrecto/a", "Por favor ingresar un nombre de usuario y contraseña correctos"));

@@ -51,7 +51,11 @@
 	<navigation-rule>
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>success</from-outcome>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/admin.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>user</from-outcome>
 			<to-view-id>/user.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
@@ -86,6 +90,14 @@
 		<navigation-case>
 			<from-outcome>failure</from-outcome>
 			<to-view-id>/editUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/admin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>users</from-outcome>
+			<to-view-id>/users.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
