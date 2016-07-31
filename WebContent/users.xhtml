@@ -29,8 +29,7 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						
-						<h:dataTable value="#{adminController.users}" var="u"
-			    			>
+						<h:dataTable value="#{adminController.users}" var="u" styleClass="table table-condensed table-bordered table-hove" >
 			    			
 				    		<h:column>
 				    			<f:facet name="header">Usuario</f:facet>
@@ -49,32 +48,21 @@
 				    			#{u.email}			    				
 				    		</h:column>		
 				    		<h:column>			    				
-				    			<f:facet name="header">DNI</f:facet>			    				
-				    			#{u.dni}			    				
-				    		</h:column>
-				    		<h:column>			    				
-				    			<f:facet name="header">Fecha de Nac.</f:facet>			    				
-				    			#{u.birthday}			    				
-				    		</h:column>
-				    		<h:column>			    				
-				    			<f:facet name="header">Dirección</f:facet>			    				
-				    			#{u.address}			    				
-				    		</h:column>
-				    		<h:column>			    				
-				    			<f:facet name="header">Email</f:facet>			    				
-				    			#{u.email}			    				
-				    		</h:column>
-				    		<h:column>			    				
-				    			<f:facet name="header">Sexo</f:facet>			    				
-				    			#{u.sex}			    				
-				    		</h:column>
-				    		<h:column>			    				
 				    			<f:facet name="header">Rol</f:facet>			    				
 				    			#{u.roll}			    				
 				    		</h:column>
 				    		<h:column>			    				
-				    			<f:facet name="header">Habilitado/Deshabilitado</f:facet>			    				
-				    			#{u.active}			    				
+				    			<f:facet name="header">Estado</f:facet>			    				
+				    			#{u.getEstado()}			    				
+				    		</h:column>
+				    		<h:column>			    				
+				    			<f:facet name="header">Acción</f:facet>			    				
+				    			<h:form id="formId">
+				    			  <input type="hidden" name="hidden1" value="this is hidden2" />
+    								<h:commandButton value="Habilitar" action="#{adminController.toggle(u.id)}" disabled="#{u.getActive()}" styleClass="btn btn-success"/>
+    								<h:commandButton value="Deshabilitar" action="#{adminController.toggle(u.id)}" disabled="#{! (u.getActive())}" styleClass="btn btn-danger"/>
+    								<h:inputHidden value="#{u.id}" id="userId" />
+								</h:form>		    				
 				    		</h:column>
 				    			    			
 			    		</h:dataTable>
@@ -84,9 +72,6 @@
 				</div>					   
 			</div>
 			
-			<script type="text/javascript">
-				$(".pass-input").show();
-			</script>
 		</div>
 	</ui:define>
 </ui:composition>

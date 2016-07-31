@@ -24,6 +24,12 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
+		 <managed-bean>
+		<managed-bean-name>adminController</managed-bean-name>
+		<managed-bean-class>controllers.AdminController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
 	<navigation-rule>
 		<from-view-id>/signup.xhtml</from-view-id>
 		<navigation-case>
@@ -97,6 +103,14 @@
 		<from-view-id>/admin.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>users</from-outcome>
+			<to-view-id>/users.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/users.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
 			<to-view-id>/users.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>

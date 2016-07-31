@@ -201,6 +201,17 @@ public class User implements Serializable {
 		this.email = email;
 	}
 	
+	public String getEstado(){
+		if (active) {
+			return "Habilitado";
+		}else{
+			return "Deshabilitado";
+		}
+	}
+	public boolean getActive() {
+		return this.active;
+	}
+	
 /*	public String signup(){
 		UserDAOJPA daoUser = new UserDAOJPA();
 		if (!daoUser.existePorUserName(this.userName)) {
