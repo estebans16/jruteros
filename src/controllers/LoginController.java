@@ -62,12 +62,18 @@ public class LoginController {
 			User user = daoUser.recuperarPorUserName(this.userName);
 			this.user = user;
 			if (user.getPassword().equals(this.password)) {
-				context.getExternalContext().getSessionMap().put("user", user);
-		        //    return "userhome?faces-redirect=true";
-				if (user.getRoll().equals("Admin")) {
-					return "admin";
+				if (user.getActive() == true) {
+					context.getExternalContext().getSessionMap().put("user", user);
+			        //    return "userhome?faces-redirect=true";
+					if (user.getRoll().equals("Admin")) {
+						return "admin";
+					} else {
+						return "user";
+					}
 				} else {
-					return "user";
+					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Su usuario ha sido deshabilitado", "Por favor ingresar un nombre de usuario y contraseña correctos"));
+					return "failure";
 				}
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
