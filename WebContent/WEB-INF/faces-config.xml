@@ -40,6 +40,10 @@
 			<from-outcome>failure</from-outcome>
 			<to-view-id>/signup.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
@@ -67,6 +71,10 @@
 		<navigation-case>
 			<from-outcome>failure</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>signup</from-outcome>
+			<to-view-id>/signup.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

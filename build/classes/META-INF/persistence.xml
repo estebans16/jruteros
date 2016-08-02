@@ -13,9 +13,15 @@
 	<class>models.User</class>
 	<properties>
 		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-		<property name="hibernate.connection.password" value="jruteros"/>
-		<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jruteros"/>
+		<!-- deploy dev -->
 		<property name="hibernate.connection.username" value="jruteros" />
+		<property name="hibernate.connection.password" value="jruteros"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jruteros"/>
+		<!-- deploy prod 
+		<property name="hibernate.connection.username" value="jyaa_sala_usr8" />
+		<property name="hibernate.connection.password" value="jyaa_sala_pwd8"/>
+		<property name="hibernate.connection.url" value="jdbc:mysql://mysql.java.linti.unlp.edu.ar:3306/jyaa_sala_bd8"/>
+		 -->
 		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 		<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->    
 	</properties>
