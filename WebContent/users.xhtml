@@ -59,7 +59,10 @@
 				    			<f:facet name="header">Acción</f:facet>			    				
 				    			<h:form id="formId">
 				    			  <input type="hidden" name="hidden1" value="this is hidden2" />
-    								<h:commandButton value="Habilitar" action="#{adminController.toggle(u.id)}" disabled="#{u.getActive()}" styleClass="btn btn-success"/>
+    								<h:commandButton value="Habilitar" action="#{adminController.toggle(u.id)}" disabled="#{u.getActive()}" styleClass="btn btn-success"/> 
+    								<!-- <h:commandLink class="btn btn-success"  disabled="#{u.getActive()}" action="#{adminController.toggle(u.id)}">
+    									<i class="fa fa-check" />
+									</h:commandLink> -->
     								<h:commandButton value="Deshabilitar" action="#{adminController.toggle(u.id)}" disabled="#{! (u.getActive())}" styleClass="btn btn-danger"/>
     								<h:inputHidden value="#{u.id}" id="userId" />
 								</h:form>		    				
